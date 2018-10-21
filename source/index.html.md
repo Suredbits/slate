@@ -47,9 +47,6 @@ This is our recommended lnd lightning client library: <a href="https://github.co
 
 This is an alternative c-lightning client library: <a href="https://github.com/suredbits/lightning-charge">https://github.com/suredbits/lightning-charge</a>
 
-## Suredbits Websocket Endpoint
-Here is the websocket url for Suredbits: <a href="wss://test.api.suredbits.com/nfl/v0">wss://test.api.suredbits.com/nfl/v0</a>
-
 ## UUID
 > Example Data Returned with valid UUID
 
@@ -153,6 +150,10 @@ Coming soon...
 Coming soon...
 
 <h1 id="NFLData"> NFL Data</h1>
+
+## NFL Websocket Endpoint
+
+Here is the websocket url for our NFL API **wss://test.api.suredbits.com/nfl/v0**
 
 ## Info
 
@@ -502,6 +503,10 @@ Field | Type | Example
 <span style="color:red"> lastName | String | </span> <span style="color:red"> *Brees* </span>
 
 # NBA 
+
+## NBA Websocket Endpoint
+
+Here is the websocket url for our NBA API **wss://test.api.suredbits.com/nba/v0**
 
 ## Info
 
