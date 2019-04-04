@@ -1091,7 +1091,7 @@ Symbol  | Kraken   | Bitmex |
 ------  | -------- | -------
 `BTCUSD` |  M Q P  | Q P B  |  
 `ETHUSD` |  M Q P  |  P     |
-`ETHBTC` |    N/A  |  Q     |
+`ETHBTC` |         |  Q     |
 `LTCBTC` |         |  Q     |
 `LTCUSD` | M Q P   |        |
 
