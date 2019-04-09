@@ -421,8 +421,8 @@ This is the free version url **wss://test.api.suredbits.com/exchange/v0** on tes
 
 ### Trading Pairs Supported
 
-Symbol   | Binance | Bitfinex | Coinbase | Bitstamp | Gemini  |  Kraken |
-------- | ------ | --------- | -------- | ------- | ------- | -------
+Symbol    | Binance  | Bitfinex  | Coinbase | Bitstamp | Gemini |  Kraken |
+-------   | ------   | --------- | -------- | ------- | ------- | -------
 `BTCUSDT` | &#10003; |           |         |         |         |
 `ETHBTC`  | &#10003; |  &#10003; | &#10003;| &#10003;| &#10003;| &#10003;
 `ETHUSDT` | &#10003; |           |         |         |         |
@@ -432,6 +432,13 @@ Symbol   | Binance | Bitfinex | Coinbase | Bitstamp | Gemini  |  Kraken |
 `LTCBTC`  | &#10003; |  &#10003; | &#10003;| &#10003;| &#10003;| &#10003;
 `LTCETH`  | &#10003; |           |         |         | &#10003;|
 `LTCUSDT` | &#10003; |           |         |         |         |
+`BCHUSDT` | &#10003; |           |         |         |         | 
+`BCHUSD`  |          | &#10003;  | &#10003;| &#10003;| &#10003;| &#10003;
+`BCHBTC`  | &#10003; | &#10003;  | &#10003;| &#10003;| &#10003;| &#10003;
+`BTCETH`  |          |           |         |         | &#10003;|
+`LTCBCH`  |          |           |         |         | &#10003;| 
+
+
 
 ### Subscribe
 
@@ -1094,6 +1101,8 @@ Symbol  | Kraken   | Bitmex |
 `ETHBTC` |         |  Q     |
 `LTCBTC` |         |  Q     |
 `LTCUSD` | M Q P   |        |
+`BCHUSD` | M Q P   |        |
+`BCHBTC` |         |   Q    |
 
 ### Contract Rollover 
 
