@@ -432,11 +432,12 @@ Symbol    | Binance  | Bitfinex  | Coinbase | Bitstamp | Gemini |  Kraken |
 `LTCBTC`  | &#10003; |  &#10003; | &#10003;| &#10003;| &#10003;| &#10003;
 `LTCETH`  | &#10003; |           |         |         | &#10003;|
 `LTCUSDT` | &#10003; |           |         |         |         |
+`LTCBCH`  |          |           |         |         | &#10003;| 
 `BCHUSDT` | &#10003; |           |         |         |         | 
 `BCHUSD`  |          | &#10003;  | &#10003;| &#10003;| &#10003;| &#10003;
 `BCHBTC`  | &#10003; | &#10003;  | &#10003;| &#10003;| &#10003;| &#10003;
-`BTCETH`  |          |           |         |         | &#10003;|
-`LTCBCH`  |          |           |         |         | &#10003;| 
+`BCHETH`  |          |           |         |         | &#10003;|
+
 
 
 
@@ -1096,13 +1097,13 @@ B = Bi-quarterly Contract
 
 Symbol  | Kraken   | Bitmex |
 ------  | -------- | -------
-`BTCUSD` |  M Q P  | Q P B  |  
-`ETHUSD` |  M Q P  |  P     |
-`ETHBTC` |         |  Q     |
-`LTCBTC` |         |  Q     |
-`LTCUSD` | M Q P   |        |
-`BCHUSD` | M Q P   |        |
-`BCHBTC` |         |   Q    |
+`BTCUSD` |  Monthly,  Quarterly, Perpetual  | Quarterly, Perpetual, Biquarterly  |  
+`ETHUSD` |  Monthly, Quarterly, Perpetual  |  Perpetual     |
+`ETHBTC` |         |  Quarterly     |
+`LTCBTC` |         |  Quarterly     |
+`LTCUSD` | Monthly,  Quarterly, Perpetual   |        |
+`BCHUSD` | Monthly, Quarterly, Perpetual   |        |
+`BCHBTC` |         |   Quarterly    |
 
 ### Contract Rollover 
 
