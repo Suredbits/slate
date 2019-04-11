@@ -1089,11 +1089,6 @@ If no `interval` is requested, it will default to `perpetual` for all trading pa
 
 ### Trading Pairs Supported 
 
-**Legend**:
-P = Perpetual Contract
-M = Monthly Contract
-Q = Quarterly Contract
-B = Bi-quarterly Contract
 
 Symbol  | Kraken   | Bitmex |
 ------  | -------- | -------
