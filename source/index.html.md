@@ -1089,7 +1089,6 @@ If no `interval` is requested, it will default to `perpetual` for all trading pa
 
 ### Trading Pairs Supported 
 
-
 Symbol  | Kraken   | Bitmex |
 ------  | -------- | -------
 `BTCUSD` |  Monthly,  Quarterly, Perpetual  | Quarterly, Perpetual, Biquarterly  |  
