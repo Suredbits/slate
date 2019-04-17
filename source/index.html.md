@@ -439,7 +439,7 @@ Symbol    | Binance  | Bitfinex  | Coinbase | Bitstamp | Gemini |  Kraken |
 `BCHETH`  |          |           |         |         | &#10003;|
 `XRPUSDT` | &#10003; |           |         |         |         |         
 `XRPBTC`  | &#10003; | &#10003;  | &#10003;| &#10003;|         | &#10003; 
-`XRPETH`  |          |           |         |         |         |
+`XRPETH`  | &#10003; |           |         |         |         |
 `XRPUSD`  |          | &#10003;  | &#10003;| &#10003;|         | &#10003;       
 
 
@@ -1102,7 +1102,7 @@ Symbol  | Kraken   | Bitmex |
 `BCHUSD` | Monthly, Quarterly, Perpetual   |        |
 `BCHBTC` |         |   Quarterly    |
 `XRPUSD` | Monthly, Quarterly, Perpetual | 
-`XRPBTC` |          |  Quarterly
+`XRPBTC` | Quarterly, Perpetual  |  Quarterly
 
 
 ### Contract Rollover 
