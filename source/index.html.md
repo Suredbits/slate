@@ -36,7 +36,7 @@ Here are some useful resources to help you learn and get started with Bicoin and
 
 ## Recommended Client Library
 
-We recommend using our custom <a href="https://github.com/suredbits/sb-api"> Javascript Client Library</a> for interacting with our API services. It supports all major implementations of the Lightning protocol: lnd, c-lightning and eclair.   
+We recommend using our custom <a href="https://github.com/suredbits/sb-api"> Javascript Client Library</a> for interacting with our API services. It supports all major implementations of the Lightning protocol: LND, C-lightning and Eclair.   
 
 ## Websocket Playground
 
@@ -437,7 +437,10 @@ Symbol    | Binance  | Bitfinex  | Coinbase | Bitstamp | Gemini |  Kraken |
 `BCHUSD`  |          | &#10003;  | &#10003;| &#10003;| &#10003;| &#10003;
 `BCHBTC`  | &#10003; | &#10003;  | &#10003;| &#10003;| &#10003;| &#10003;
 `BCHETH`  |          |           |         |         | &#10003;|
-
+`XRPUSDT` | &#10003; |           |         |         |         |         
+`XRPBTC`  | &#10003; | &#10003;  | &#10003;| &#10003;|         | &#10003; 
+`XRPETH`  | &#10003; |           |         |         |         |
+`XRPUSD`  |          | &#10003;  | &#10003;| &#10003;|         | &#10003;       
 
 
 
@@ -1098,6 +1101,9 @@ Symbol  | Kraken   | Bitmex |
 `LTCUSD` | Monthly,  Quarterly, Perpetual   |        |
 `BCHUSD` | Monthly, Quarterly, Perpetual   |        |
 `BCHBTC` |         |   Quarterly    |
+`XRPUSD` | Monthly, Quarterly, Perpetual | 
+`XRPBTC` | Quarterly, Perpetual  |  Quarterly
+
 
 ### Contract Rollover 
 
