@@ -20,6 +20,10 @@ Follow us on twitter <a href="https://twitter.com/Suredbits">@Suredbits</a>
 
 We invite you to join our Slack channel <a href="https://join.slack.com/t/suredbits/shared_invite/enQtNDEyMjY3MTg1MTg3LTYyYjkwOGUzMDQ4NDAwZjE1M2I3MmQyNWNlZjNlYjg4OGRjYTRjNWUwNjRjNjg4Y2NjZjAxYjU1N2JjMTU1YWM">Suredbits Slack</a>
 
+## Blog
+
+To learn more about all things Lightning Network, check out our <a href="https://suredbits.com/blog/">Suredbits Blog</a>. 
+
 ## Background Resources
 Thank you and welcome to Suredbits' Lightning App API documentation. This API allows you to query our NFL, NBA and Crypto Exchange data. Our NFL and NBA APIs offer multiple channels including teams, players, games, scores, and statistics.  Our Crypto Exchange API allows you to stream data on Trades, Tickers and Order Books. 
 
