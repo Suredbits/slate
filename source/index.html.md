@@ -22,7 +22,7 @@ We invite you to join our Slack channel <a href="https://join.slack.com/t/suredb
 
 ## Blog
 
-To learn more about all things Lightning Network, check out our <a href="https://suredbits.com/blog/">Blog</a>. 
+To learn more about all things Lightning Network, check out our <a href="https://suredbits.com/blog/">Suredbits Blog</a>. 
 
 ## Background Resources
 Thank you and welcome to Suredbits' Lightning App API documentation. This API allows you to query our NFL, NBA and Crypto Exchange data. Our NFL and NBA APIs offer multiple channels including teams, players, games, scores, and statistics.  Our Crypto Exchange API allows you to stream data on Trades, Tickers and Order Books. 
