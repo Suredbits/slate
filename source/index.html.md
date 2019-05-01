@@ -445,7 +445,10 @@ Symbol    | Binance  | Bitfinex  | Coinbase | Bitstamp | Gemini |  Kraken |
 `XRPBTC`  | &#10003; | &#10003;  | &#10003;| &#10003;|         | &#10003; 
 `XRPETH`  | &#10003; |           |         |         |         |
 `XRPUSD`  |          | &#10003;  | &#10003;| &#10003;|         | &#10003;       
-
+`EOSUSDT` | &#10003; |           |         |         |         | 
+`EOSUSD`  |          | &#10003;  | &#10003;|         |         | &#10003;
+`EOSBTC`  | &#10003; | &#10003;  | &#10003;|         |         | &#10003;
+`EOSETH`  | &#10003; | &#10003;  |         |         |         | &#10003;
 
 
 ### Subscribe
@@ -1107,7 +1110,7 @@ Symbol  | Kraken   | Bitmex |
 `BCHBTC` |         |   Quarterly    |
 `XRPUSD` | Monthly, Quarterly, Perpetual | 
 `XRPBTC` | Quarterly, Perpetual  |  Quarterly
-
+`EOSBTC` |          | Quarterly 
 
 ### Contract Rollover 
 
