@@ -290,7 +290,7 @@ This is an alternative c-lightning client library: <a href="https://github.com/s
 
 For NFL Data and NBA Data APIs, the cost is $.01 (1 cent) per call.  
 
-For our streaming Crypto Exchange API, the cost is $.10 (10 cents) per sixty seconds of streaming data.   
+For our streaming Crypto Exchange API, the cost is $.0001 per second.  (10 cents) per sixty seconds of streaming data.   
 
 Anything less than 60 seconds will be prorated accordingly.  
 
@@ -1075,7 +1075,7 @@ The **Books** channel streams bids and asks for a given trading pair on given ex
 Field | Type | Exchanges Supporting
 ------| -------| --------
 `uuid`  | String | "123e4567-e89b-12d3-a456-426655440000"
-`eventTime` | Integer | binance, bitfinex, bitstamp, gemini 
+`eventTime` | Integer | binance, bitfinex, bitstamp, gemini, coinbase 
 `orderId` |  Integer |  bitfinex, bitstamp 
 `price`  | Double | binance, bitfinex, coinbase, bitstamp, gemini 
 `quantityTotal` | Double | binance, bitfinex, coinbase, gemini 
@@ -1401,7 +1401,7 @@ The **Books** channel streams bids and asks for a given trading pair on given ex
 
 Field | Type | Exchanges Supporting
 ------| -------| --------
-`eventTime` | Integer | kraken
+`eventTime` | Integer | bitmex, kraken
 `symbol` | String | bitmex, kraken
 `maturation` | Integer | bitmex, kraken 
 `orderId`| Integer | bitmex, kraken
