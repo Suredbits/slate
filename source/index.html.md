@@ -290,7 +290,7 @@ This is an alternative c-lightning client library: <a href="https://github.com/s
 
 For NFL Data and NBA Data APIs, the cost is $.01 (1 cent) per call.  
 
-For our streaming Crypto Exchange API, the cost is $.0001 per second.  (10 cents) per sixty seconds of streaming data.   
+For our streaming Crypto Exchange API, the cost is $.0001 per minute.    
 
 Anything less than 60 seconds will be prorated accordingly.  
 
