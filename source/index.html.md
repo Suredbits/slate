@@ -426,7 +426,7 @@ This is the free version url **wss://test.api.suredbits.com/exchange/v0** on tes
 ### Trading Pairs Supported
 
 Symbol    | Binance  | Bitfinex  | Coinbase | Bitstamp | Gemini |  Kraken |
--------   | ------   | --------- | -------- | ------- | ------- | -------
+-------   | :-----:  | :-------: | :------: | :------: | :-----: | :-----:
 `BTCUSDT` | &#10003; |           |         |         |         |
 `ETHBTC`  | &#10003; |  &#10003; | &#10003;| &#10003;| &#10003;| &#10003;
 `ETHUSDT` | &#10003; |           |         |         |         |
@@ -450,6 +450,19 @@ Symbol    | Binance  | Bitfinex  | Coinbase | Bitstamp | Gemini |  Kraken |
 `EOSBTC`  | &#10003; | &#10003;  | &#10003;|         |         | &#10003;
 `EOSETH`  | &#10003; | &#10003;  |         |         |         | &#10003;
 
+### Euro Trading Pairs Supported
+
+
+
+Symbol | Bitfinex | Coinbase | Bitstamp | Kraken |
+------ | :------: | :------: | :------: | :-----:
+`BTCEUR` | &#10003;| &#10003; | &#10003; | &#10003;|
+`ETHEUR` | &#10003; | &#10003; | &#10003; | &#10003; |
+`EOSEUR` | &#10003; | &#10003; |          | &#10003; |
+`LTCEUR` |        | &#10003; | &#10003; |  &#10003; |
+`BCHEUR` |       | &#10003; | &#10003; |  &#10003; |
+`XRPEUR` |       | &#10003; | &#10003; |  &#10003; |
+`EURUSD` |       |          | &#10003; |        |
 
 ### Subscribe
 
@@ -1100,7 +1113,7 @@ If no `interval` is requested, it will default to `perpetual` for all trading pa
 ### Trading Pairs Supported 
 
 Symbol  | Kraken   | Bitmex |
-------  | -------- | -------
+------  | :------: | :-----: |
 `BTCUSD` |  Monthly,  Quarterly, Perpetual  | Quarterly, Perpetual, Biquarterly  |  
 `ETHUSD` |  Monthly, Quarterly, Perpetual  |  Perpetual     |
 `ETHBTC` |         |  Quarterly     |
