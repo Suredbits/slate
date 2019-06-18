@@ -1425,6 +1425,9 @@ Field | Type | Exchanges Supporting
 
 <h1 id="NFLData"> NFL Data</h1>
 
+## Historical Crypto Data API
+
+
 ## NFL Websocket Endpoints
 
 
