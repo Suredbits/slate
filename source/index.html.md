@@ -1422,11 +1422,98 @@ Field | Type | Exchanges Supporting
 `quantityChange`| Float | bitmex, kraken
 `quantityTotal` | Float | kraken
 
+# Historical Crypto Data API
+
+## Overview
+
+### Trading Pairs Supported
+
+Symbol    | Binance  | Bitfinex  | Coinbase | Bitstamp | Gemini |  Kraken |
+-------   | :-----:  | :-------: | :------: | :------: | :-----: | :-----:
+`BTCUSDT` | &#10003; |           |         |         |         |
+`ETHBTC`  | &#10003; |  &#10003; | &#10003;| &#10003;| &#10003;| &#10003;
+`ETHUSDT` | &#10003; |           |         |         |         |
+`BTCUSD`  |          |  &#10003; | &#10003;| &#10003;| &#10003;| &#10003;
+`ETHUSD`  |          |  &#10003; | &#10003;| &#10003;| &#10003;| &#10003;
+`LTCUSD`  |          |  &#10003; | &#10003;| &#10003;| &#10003;| &#10003;    
+`LTCBTC`  | &#10003; |  &#10003; | &#10003;| &#10003;| &#10003;| &#10003;
+`LTCETH`  | &#10003; |           |         |         | &#10003;|
+`LTCUSDT` | &#10003; |           |         |         |         |
+`LTCBCH`  |          |           |         |         | &#10003;| 
+`BCHUSDT` | &#10003; |           |         |         |         | 
+`BCHUSD`  |          | &#10003;  | &#10003;| &#10003;| &#10003;| &#10003;
+`BCHBTC`  | &#10003; | &#10003;  | &#10003;| &#10003;| &#10003;| &#10003;
+`BCHETH`  |          |           |         |         | &#10003;|
+`XRPUSDT` | &#10003; |           |         |         |         |         
+`XRPBTC`  | &#10003; | &#10003;  | &#10003;| &#10003;|         | &#10003; 
+`XRPETH`  | &#10003; |           |         |         |         |
+`XRPUSD`  |          | &#10003;  | &#10003;| &#10003;|         | &#10003;       
+`EOSUSDT` | &#10003; |           |         |         |         | 
+`EOSUSD`  |          | &#10003;  | &#10003;|         |         | &#10003;
+`EOSBTC`  | &#10003; | &#10003;  | &#10003;|         |         | &#10003;
+`EOSETH`  | &#10003; | &#10003;  |         |         |         | &#10003;
+
+### Euro Trading Pairs Supported
+
+Symbol | Bitfinex | Coinbase | Bitstamp | Kraken |
+------ | :------: | :------: | :------: | :-----:
+`BTCEUR` | &#10003;| &#10003; | &#10003; | &#10003;|
+`ETHEUR` | &#10003; | &#10003; | &#10003; | &#10003; |
+`EOSEUR` | &#10003; | &#10003; |          | &#10003; |
+`LTCEUR` |        | &#10003; | &#10003; |  &#10003; |
+`BCHEUR` |       | &#10003; | &#10003; |  &#10003; |
+`XRPEUR` |       | &#10003; | &#10003; |  &#10003; |
+`EURUSD` |       |          | &#10003; |        |
+
+## Prices
+
+> Example Price data
+
+```json
+
+[  
+   {  
+      "timestamp":"2019-01-14T00:00:09.000Z",
+      "price":3516.07,
+      "pair":"BTCUSD"
+   },
+   {  
+      "timestamp":"2019-01-21T00:00:06.000Z",
+      "price":3538.74,
+      "pair":"BTCUSD"
+   },
+   {  
+      "timestamp":"2019-01-28T00:00:05.000Z",
+      "price":3533.23,
+      "pair":"BTCUSD"
+   },
+   {  
+      "timestamp":"2019-02-04T00:00:08.000Z",
+      "price":3414.82,
+      "pair":"BTCUSD"
+   },
+   {  
+      "timestamp":"2019-02-11T00:00:02.000Z",
+      "price":3650.37,
+      "pair":"BTCUSD"
+   },
+   {  
+      "timestamp":"2019-02-18T00:00:01.000Z",
+      "price":3625.6,
+      "pair":"BTCUSD"
+   },
+  
+...
+```
+
+<aside class="success">URIs relative to https://www.suredbits.com/api/historical/v0</aside>
+
+Method | HTTP Request | Description
+:-------: | :----------:  | :-----------:
+get    |  GET /exchange/pair/year/period | Returns the pricing data for the specific `period` requested.
+
 
 <h1 id="NFLData"> NFL Data</h1>
-
-## Historical Crypto Data API
-
 
 ## NFL Websocket Endpoints
 
