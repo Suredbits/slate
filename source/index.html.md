@@ -1424,9 +1424,21 @@ Field | Type | Exchanges Supporting
 
 # Historical Crypto Data API
 
-## Overview
+Our Historical Crypto Data API service allows you to query any of our supported exchanges and trading pairs for historical pricing data. 
 
-### Trading Pairs Supported
+We currently support the years: `2018` and `2019`.  
+
+We currently support three time periods: `daily`, `weekly`, and `monthly`.  
+
+Parameters | Example |
+---------- | -------
+`exchange` |  `binance`, `coinbase`, `kraken` etc...
+`pair` | `BTCUSD`, `ETHBTC`, `LTCBCH`, `XRPUSD`, etc...
+`year`| `2018`, `2019` 
+`period`| `daily`, `weekly`, `monthly` 
+
+
+###Trading Pairs Supported 
 
 Symbol    | Binance  | Bitfinex  | Coinbase | Bitstamp | Gemini |  Kraken |
 -------   | :-----:  | :-------: | :------: | :------: | :-----: | :-----:
@@ -1464,6 +1476,7 @@ Symbol | Bitfinex | Coinbase | Bitstamp | Kraken |
 `BCHEUR` |       | &#10003; | &#10003; |  &#10003; |
 `XRPEUR` |       | &#10003; | &#10003; |  &#10003; |
 `EURUSD` |       |          | &#10003; |        |
+
 
 ## Prices
 
@@ -1508,7 +1521,7 @@ Symbol | Bitfinex | Coinbase | Bitstamp | Kraken |
 
 <aside class="success">URIs relative to https://www.suredbits.com/api/historical/v0</aside>
 
-Method | HTTP Request | Description
+Method | HTTPS Request | Description
 :-------: | :----------:  | :-----------:
 get    |  GET /exchange/pair/year/period | Returns the pricing data for the specific `period` requested.
 
