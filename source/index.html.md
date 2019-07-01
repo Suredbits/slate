@@ -67,7 +67,7 @@ The Lightning Node URL for our testnet service is:
 
 We provide a number of free data endpoints so users can experiment and learn the structure of our Lightning API service. To allow for complete testing, we make the following data avaialble for free on testnet:  
 
-## Crypto Exchange Testnet API
+## Crypto Spot Exchange Testnet API
 
 Currently, we offer the trading pair `BTCUSD` data for free across all available exchanges. 
 
@@ -76,6 +76,10 @@ For Binance, the symbol is `BTCUSDT`.
 ## Crypto Futures Testnet API
 
 Currently, we offer the trading pair `BTCUSD` data for free across all available exchanges. 
+
+## Historical Prices Data API
+
+All data is currently available on both mainnet and testnet.  
 
 ## NFL Testnet API 
 
@@ -290,11 +294,15 @@ This is an alternative c-lightning client library: <a href="https://github.com/s
 
 For NFL Data and NBA Data APIs, the cost is $.01 (1 cent) per call.  
 
-For our streaming Crypto Exchange API, the cost is $.0001 per minute.    
+For our streaming Crypto Spot and Futures Exchange APIs, the cost is $.0001 per minute.    
 
 Anything less than 60 seconds will be prorated accordingly.  
 
 A minimum of 10 satoshis will be charged for all streaming data calls. 
+
+For Historical Prices Data API, the cost is 
+
+
 
 ## UUID
 
@@ -1422,13 +1430,19 @@ Field | Type | Exchanges Supporting
 `quantityChange`| Float | bitmex, kraken
 `quantityTotal` | Float | kraken
 
-# Historical Crypto Data API
+# Historical Prices Data API
 
-Our Historical Crypto Data API service allows you to query any of our supported exchanges and trading pairs for historical pricing data. 
+Our Historical Crypto Data REST API service allows you to query any of our supported exchanges and trading pairs for historical pricing data. 
 
 We currently support the years: `2018` and `2019`.  
 
 We currently support three time periods: `daily`, `weekly`, and `monthly`.  
+
+For this beta release, all data is available on both mainnet and testnet. 
+
+Mainnet address: https://api.suredbits.com/historical/v0
+
+Testnet address: https://test.api.suredbits.com/historical/v0
 
 Parameters | Example |
 ---------- | -------
