@@ -300,7 +300,7 @@ Anything less than 60 seconds will be prorated accordingly.
 
 A minimum of 10 satoshis will be charged for all streaming data calls. 
 
-For Historical Prices Data API, the cost is 
+For Historical Prices Data API the cost is $.0001.
 
 
 
