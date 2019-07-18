@@ -67,7 +67,7 @@ The Lightning Node URL for our testnet service is:
 
 We provide a number of free data endpoints so users can experiment and learn the structure of our Lightning API service. To allow for complete testing, we make the following data avaialble for free on testnet:  
 
-## Crypto Exchange Testnet API
+## Crypto Spot Exchange Testnet API
 
 Currently, we offer the trading pair `BTCUSD` data for free across all available exchanges. 
 
@@ -76,6 +76,10 @@ For Binance, the symbol is `BTCUSDT`.
 ## Crypto Futures Testnet API
 
 Currently, we offer the trading pair `BTCUSD` data for free across all available exchanges. 
+
+## Historical Prices Data API
+
+All data is currently available on both mainnet and testnet.  
 
 ## NFL Testnet API 
 
@@ -290,11 +294,15 @@ This is an alternative c-lightning client library: <a href="https://github.com/s
 
 For NFL Data and NBA Data APIs, the cost is $.01 (1 cent) per call.  
 
-For our streaming Crypto Exchange API, the cost is $.0001 per minute.    
+For our streaming Crypto Spot and Futures Exchange APIs, the cost is $.0001 per minute.    
 
 Anything less than 60 seconds will be prorated accordingly.  
 
 A minimum of 10 satoshis will be charged for all streaming data calls. 
+
+For Historical Prices Data API the cost is $.0001.
+
+
 
 ## UUID
 
@@ -1421,6 +1429,115 @@ Field | Type | Exchanges Supporting
 `price` | Float | bitmex, kraken
 `quantityChange`| Float | bitmex, kraken
 `quantityTotal` | Float | kraken
+
+# Historical Prices Data API
+
+Our Historical Crypto Data REST API service allows you to query any of our supported exchanges and trading pairs for historical pricing data. 
+
+We currently support the years: `2018` and `2019`.  
+
+We currently support three time periods: `daily`, `weekly`, and `monthly`.  
+
+For this beta release, all data is available on both mainnet and testnet. 
+
+Mainnet address: https://api.suredbits.com/historical/v0
+
+Testnet address: https://test.api.suredbits.com/historical/v0
+
+Parameters | Example |
+---------- | -------
+`exchange` |  `binance`, `coinbase`, `kraken` etc...
+`pair` | `BTCUSD`, `ETHBTC`, `LTCBCH`, `XRPUSD`, etc...
+`year`| `2018`, `2019` 
+`period`| `daily`, `weekly`, `monthly` 
+
+
+###Trading Pairs Supported 
+
+Symbol    | Binance  | Bitfinex  | Coinbase | Bitstamp | Gemini |  Kraken |
+-------   | :-----:  | :-------: | :------: | :------: | :-----: | :-----:
+`BTCUSDT` | &#10003; |           |         |         |         |
+`ETHBTC`  | &#10003; |  &#10003; | &#10003;| &#10003;| &#10003;| &#10003;
+`ETHUSDT` | &#10003; |           |         |         |         |
+`BTCUSD`  |          |  &#10003; | &#10003;| &#10003;| &#10003;| &#10003;
+`ETHUSD`  |          |  &#10003; | &#10003;| &#10003;| &#10003;| &#10003;
+`LTCUSD`  |          |  &#10003; | &#10003;| &#10003;| &#10003;| &#10003;    
+`LTCBTC`  | &#10003; |  &#10003; | &#10003;| &#10003;| &#10003;| &#10003;
+`LTCETH`  | &#10003; |           |         |         | &#10003;|
+`LTCUSDT` | &#10003; |           |         |         |         |
+`LTCBCH`  |          |           |         |         | &#10003;| 
+`BCHUSDT` | &#10003; |           |         |         |         | 
+`BCHUSD`  |          | &#10003;  | &#10003;| &#10003;| &#10003;| &#10003;
+`BCHBTC`  | &#10003; | &#10003;  | &#10003;| &#10003;| &#10003;| &#10003;
+`BCHETH`  |          |           |         |         | &#10003;|
+`XRPUSDT` | &#10003; |           |         |         |         |         
+`XRPBTC`  | &#10003; | &#10003;  | &#10003;| &#10003;|         | &#10003; 
+`XRPETH`  | &#10003; |           |         |         |         |
+`XRPUSD`  |          | &#10003;  | &#10003;| &#10003;|         | &#10003;       
+`EOSUSDT` | &#10003; |           |         |         |         | 
+`EOSUSD`  |          | &#10003;  | &#10003;|         |         | &#10003;
+`EOSBTC`  | &#10003; | &#10003;  | &#10003;|         |         | &#10003;
+`EOSETH`  | &#10003; | &#10003;  |         |         |         | &#10003;
+
+### Euro Trading Pairs Supported
+
+Symbol | Bitfinex | Coinbase | Bitstamp | Kraken |
+------ | :------: | :------: | :------: | :-----:
+`BTCEUR` | &#10003;| &#10003; | &#10003; | &#10003;|
+`ETHEUR` | &#10003; | &#10003; | &#10003; | &#10003; |
+`EOSEUR` | &#10003; | &#10003; |          | &#10003; |
+`LTCEUR` |        | &#10003; | &#10003; |  &#10003; |
+`BCHEUR` |       | &#10003; | &#10003; |  &#10003; |
+`XRPEUR` |       | &#10003; | &#10003; |  &#10003; |
+`EURUSD` |       |          | &#10003; |        |
+
+
+## Prices
+
+> Example Price data
+
+```json
+
+[  
+   {  
+      "timestamp":"2019-01-14T00:00:09.000Z",
+      "price":3516.07,
+      "pair":"BTCUSD"
+   },
+   {  
+      "timestamp":"2019-01-21T00:00:06.000Z",
+      "price":3538.74,
+      "pair":"BTCUSD"
+   },
+   {  
+      "timestamp":"2019-01-28T00:00:05.000Z",
+      "price":3533.23,
+      "pair":"BTCUSD"
+   },
+   {  
+      "timestamp":"2019-02-04T00:00:08.000Z",
+      "price":3414.82,
+      "pair":"BTCUSD"
+   },
+   {  
+      "timestamp":"2019-02-11T00:00:02.000Z",
+      "price":3650.37,
+      "pair":"BTCUSD"
+   },
+   {  
+      "timestamp":"2019-02-18T00:00:01.000Z",
+      "price":3625.6,
+      "pair":"BTCUSD"
+   },
+  
+...
+```
+
+<aside class="success">URIs relative to https://www.suredbits.com/api/historical/v0</aside>
+
+Method | HTTPS Request | Description
+:-------: | :----------:  | :-----------:
+get    |  GET /exchange/pair/year/period | Returns the pricing data for the specific `period` requested.
 
 
 <h1 id="NFLData"> NFL Data</h1>
