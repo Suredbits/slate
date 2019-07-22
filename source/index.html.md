@@ -1122,14 +1122,14 @@ If no `interval` is requested, it will default to `perpetual` for all trading pa
 
 Symbol  | Kraken   | Bitmex |
 ------  | :------: | :-----: |
-`BTCUSD` |  Monthly,  Quarterly, Perpetual  | Quarterly, Perpetual, Biquarterly  |  
-`ETHUSD` |  Monthly, Quarterly, Perpetual  |  Perpetual     |
+`BTCUSD` |  Quarterly, Perpetual  | Quarterly, Perpetual, Biquarterly  |  
+`ETHUSD` |  Quarterly, Perpetual  |  Perpetual     |
 `ETHBTC` |         |  Quarterly     |
 `LTCBTC` |         |  Quarterly     |
-`LTCUSD` | Monthly,  Quarterly, Perpetual   |        |
-`BCHUSD` | Monthly, Quarterly, Perpetual   |        |
+`LTCUSD` | Quarterly, Perpetual   |        |
+`BCHUSD` | Quarterly, Perpetual   |        |
 `BCHBTC` |         |   Quarterly    |
-`XRPUSD` | Monthly, Quarterly, Perpetual | 
+`XRPUSD` | Quarterly, Perpetual | 
 `XRPBTC` | Quarterly, Perpetual  |  Quarterly
 `EOSBTC` |          | Quarterly 
 
