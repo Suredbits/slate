@@ -1434,15 +1434,60 @@ Field | Type | Exchanges Supporting
 
 Our Historical Crypto Data REST API service allows you to query any of our supported exchanges and trading pairs for historical pricing data. 
 
-We currently support the years: `2018` and `2019`.  
+We currently support the years 2018 and 2019.  
 
 We currently support three time periods: `daily`, `weekly`, and `monthly`.  
 
 For this beta release, all data is available on both mainnet and testnet. 
 
-Mainnet address: https://api.suredbits.com/historical/v0
+Mainnet address: [https://api.suredbits.com/historical/v0](https://api.suredbits.com/historical/v0)
 
-Testnet address: https://test.api.suredbits.com/historical/v0
+Testnet address: [https://test.api.suredbits.com/historical/v0](https://test.api.suredbits.com/historical/v0)
+
+## Encrypted payloads
+
+All data server over our REST endpoints are sent to you immediately, but they are encrypted.
+The decryption key is the preimage that was used to generate the invoice we sent you. Your
+Lightning Client provides you with this preimage upon paying the invoice. 
+
+### Technical details
+
+The payloads are encrypted with AES in CFB mode, with no padding to the plaintext. The 
+initialization vector (IV) is prepended to the payload, and the resulting byte sequence
+is base64-encoded. When decrypting you decode the base64 string, take the first 16 bytes
+as your IV and the rest as the encrypted payload. 
+
+
+### Reference implementations
+
+Reference implementations for this is available in [JavaScript](https://gist.github.com/torkelrogstad/4611d73567cdcbc40d1da144169c9b03),
+[Python](https://gist.github.com/torkelrogstad/9f57c9ec2f14322a9c1ce0a863f4ad50) and 
+[Scala](https://github.com/torkelrogstad/bitcoin-s/blob/21f69158de361349a3ef1abe6f94f042af144ea9/core/src/main/scala/org/bitcoins/core/crypto/AesCrypt.scala).
+
+```javascript
+import { Lnd, HistoricalRestAPI } from "sb-api"
+
+// it's possible to pass in configuration options here, 
+// if you're deviating from the default configuration.
+// you can also use Eclair and c-lightning, just 
+// import Eclair or CLightning instead of Lnd
+const lnd = await Lnd() 
+
+const rest = HistoricalRestAPI(lnd)
+
+const response = await rest.call({ exchange: 'bitstamp', pair: 'BTCUSD', period: 'daily', year: 2018 })
+
+// response: [{timestamp: Date, price: number, pair: string}, ...] 
+```
+
+### Client library
+
+You can also use our JavaScript client library (published as 
+[`sb-api`](https://www.npmjs.com/package/sb-api) on npm) which handles both
+constructing the request, paying the Lightning invoice, decrypting the payload
+with the preimage to the invoice and then finally returning the decrypted
+data you requested. 
+
 
 Parameters | Example |
 ---------- | -------
@@ -1452,7 +1497,7 @@ Parameters | Example |
 `period`| `daily`, `weekly`, `monthly` 
 
 
-###Trading Pairs Supported 
+### Trading Pairs Supported 
 
 Symbol    | Binance  | Bitfinex  | Coinbase | Bitstamp | Gemini |  Kraken |
 -------   | :-----:  | :-------: | :------: | :------: | :-----: | :-----:
