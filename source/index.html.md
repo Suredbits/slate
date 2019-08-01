@@ -1497,7 +1497,7 @@ Parameters | Example |
 `period`| `daily`, `weekly`, `monthly` 
 
 
-### Trading Pairs Supported 
+### Spot Trading Pairs Supported 
 
 Symbol    | Binance  | Bitfinex  | Coinbase | Bitstamp | Gemini |  Kraken |
 -------   | :-----:  | :-------: | :------: | :------: | :-----: | :-----:
@@ -1535,6 +1535,19 @@ Symbol | Bitfinex | Coinbase | Bitstamp | Kraken |
 `BCHEUR` |       | &#10003; | &#10003; |  &#10003; |
 `XRPEUR` |       | &#10003; | &#10003; |  &#10003; |
 `EURUSD` |       |          | &#10003; |        |
+
+### Futures Trading Pairs Supported
+
+
+Symbol  | Kraken   | Bitmex |
+------  | :------: | :-----: |
+`BTCUSD` |  Perpetual  | Perpetual|  
+`ETHUSD` |  Perpetual  | Perpetual     |
+`LTCUSD` | Perpetual   |        |
+`BCHUSD` | Perpetual   |        |
+`XRPUSD` | Perpetual | 
+`XRPBTC` | Perpetual  | 
+
 
 
 ## Prices
