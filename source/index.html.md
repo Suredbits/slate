@@ -20,6 +20,10 @@ Follow us on twitter <a href="https://twitter.com/Suredbits">@Suredbits</a>
 
 We invite you to join our Slack channel <a href="https://join.slack.com/t/suredbits/shared_invite/enQtNDEyMjY3MTg1MTg3LTYyYjkwOGUzMDQ4NDAwZjE1M2I3MmQyNWNlZjNlYjg4OGRjYTRjNWUwNjRjNjg4Y2NjZjAxYjU1N2JjMTU1YWM">Suredbits Slack</a>
 
+## Websocket Playground
+
+Explore and experiment with our APIs on our <a href="https://suredbits.com/ws-playground/"> Websocket Playground. </a>
+
 ## Blog
 
 To learn more about all things Lightning Network, check out our <a href="https://suredbits.com/blog/">Suredbits Blog</a>. 
@@ -41,11 +45,6 @@ Here are some useful resources to help you learn and get started with Bicoin and
 ## Recommended Client Library
 
 We recommend using our custom <a href="https://github.com/suredbits/sb-api"> Javascript Client Library</a> for interacting with our API services. It supports all major implementations of the Lightning protocol: LND, C-lightning and Eclair.   
-
-## Websocket Playground
-
-Explore and experiment with our APIs on our <a href="https://suredbits.com/ws-playground/"> Websocket Playground. </a>
-
 
 ## Mainnet Node (paid) 
 In order to access our paid API service, you will need to connect to our lightning node via your preferred lightning client.  
@@ -459,7 +458,6 @@ Symbol    | Binance  | Bitfinex  | Coinbase | Bitstamp | Gemini |  Kraken |
 `EOSETH`  | &#10003; | &#10003;  |         |         |         | &#10003;
 
 ### Euro Trading Pairs Supported
-
 
 
 Symbol | Bitfinex | Coinbase | Bitstamp | Kraken |
@@ -1497,7 +1495,7 @@ Parameters | Example |
 `period`| `daily`, `weekly`, `monthly` 
 
 
-### Trading Pairs Supported 
+### Spot Trading Pairs Supported 
 
 Symbol    | Binance  | Bitfinex  | Coinbase | Bitstamp | Gemini |  Kraken |
 -------   | :-----:  | :-------: | :------: | :------: | :-----: | :-----:
@@ -1535,6 +1533,20 @@ Symbol | Bitfinex | Coinbase | Bitstamp | Kraken |
 `BCHEUR` |       | &#10003; | &#10003; |  &#10003; |
 `XRPEUR` |       | &#10003; | &#10003; |  &#10003; |
 `EURUSD` |       |          | &#10003; |        |
+
+### Futures Trading Pairs Supported
+
+<aside class="success">At this time, we only provide pricing data for Perpetual contracts. Historical Quartelry and Bi-Quarterly data are not available at this time. </aside>
+
+Symbol  | Kraken   | Bitmex |
+------  | :------: | :-----: |
+`BTCUSD` |  Perpetual  | Perpetual|  
+`ETHUSD` |  Perpetual  | Perpetual     |
+`LTCUSD` | Perpetual   |        |
+`BCHUSD` | Perpetual   |        |
+`XRPUSD` | Perpetual | 
+`XRPBTC` | Perpetual  | 
+
 
 
 ## Prices
