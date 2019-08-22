@@ -1597,7 +1597,61 @@ Method | HTTPS Request | Description
 get    |  GET /exchange/pair/year/period | Returns the pricing data for the specific `period` requested.
 
 
-<h1 id="NFLData"> NFL Data</h1>
+# NFL Data 
+
+## Info
+
+Mainnnet address: https://api.suredbits.com/nfl/v0/info
+
+Testnet address: https://test.api.suredbits.com/nfl/v0/info
+
+## Games
+
+Mainnnet address: https://api.suredbits.com/nfl/v0/games
+
+Method | HTTPS Request | Description
+ ------- | --------- | ---------
+get       | GET /games/week/seasonPhase | 
+get       | GET /games/week/seasonPhase/year |
+get       | GET /games/week/seasonPhase/year/teamId |
+get       | GET /games/week/seasonPhase/teamId
+get       | GET /games/realtime     |
+get       | GET /games/realtime/teamId | 
+ 
+## Players
+
+Mainnnet address: https://api.suredbits.com/nfl/v0/players
+
+Method | HTTPS Request | Description
+ ------- | --------- | ---------
+get      | GET /players/firstname/lastname
+
+## Team
+
+Mainnnet address: https://api.suredbits.com/nfl/v0/team
+
+Method | HTTPS Request | Description
+ ------- | --------- | ---------
+ get     | GET /team/teamId/retrieve 
+ get     | GET /team/teamId/retrieve/year
+
+## Stats 
+
+Mainnnet address: https://api.suredbits.com/nfl/v0/stats
+
+Required field for Stats by Id
+
+Method | HTTPS Request | Description
+ ------- | --------- | ---------
+get      | GET /stats/stattype/gameId/playerId
+
+Required fields for Stats by Name and Week
+
+Method | HTTPS Request | Description
+ ------- | --------- | ---------
+ get     | GET
+
+<h1 id="NFLData"> NFL Data Websocket (Deprecated)</h1>
 
 ## NFL Websocket Endpoints
 
