@@ -1649,7 +1649,7 @@ Required fields for Stats by Name and Week
 
 Method | HTTPS Request | Description
  ------- | --------- | ---------
- get     | GET
+ get     | GET /stats//statType/year/week/seasonPhase/firstName/lastName |
 
 <h1 id="NFLData"> NFL Data Websocket (Deprecated)</h1>
 
