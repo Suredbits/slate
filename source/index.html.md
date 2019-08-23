@@ -1599,6 +1599,22 @@ get    |  GET /exchange/pair/year/period | Returns the pricing data for the spec
 
 # NFL Data 
 
+## Data Types 
+
+Type | Example
+----- | -------
+`seasonPhase` | `Preseason`, `Regular`, `Postseason`
+`teamId` | `CHI`, `NE`, `BAL`, etc.  <a href="#TeamID">See Team ID Table</a>
+`realTime` | `true`
+`firstName` | `Khalil`, `Tom`, `Saquon`, etc. 
+`lastName` | `Mack` `Brady`, `Barkley`, etc. 
+`retrieve` | `roster`, `schedule` 
+`year` | `2018`, `2015`, `2011`, etc.
+`statType` | `passing`, `rushing`, `receiving`, `defense`
+`gameId` |  `2016101604`
+`playerId` | `00-0027973`
+
+
 ## Info
 
 Mainnnet address: https://api.suredbits.com/nfl/v0/info
@@ -1612,8 +1628,8 @@ Mainnnet address: https://api.suredbits.com/nfl/v0/games
 Method | HTTPS Request | Description
  ------- | --------- | ---------
 get       | GET /games/week/seasonPhase | 
-get       | GET /games/week/seasonPhase/year |
-get       | GET /games/week/seasonPhase/year/teamId |
+get       | GET /games/week/seasonPhase/year | 
+get       | GET /games/week/seasonPhase/year/teamId | 
 get       | GET /games/week/seasonPhase/teamId
 get       | GET /games/realtime     |
 get       | GET /games/realtime/teamId | 
@@ -1624,7 +1640,7 @@ Mainnnet address: https://api.suredbits.com/nfl/v0/players
 
 Method | HTTPS Request | Description
  ------- | --------- | ---------
-get      | GET /players/firstname/lastname
+get      | GET /players/lastName/firstName
 
 ## Team
 
@@ -1632,8 +1648,10 @@ Mainnnet address: https://api.suredbits.com/nfl/v0/team
 
 Method | HTTPS Request | Description
  ------- | --------- | ---------
- get     | GET /team/teamId/retrieve 
- get     | GET /team/teamId/retrieve/year
+ get     | GET /team/teamId/roster
+ get     | GET /team/teamId/schedule 
+ get     | GET /team/teamId/roster/year
+ get     | GET /team/teamId/schedule/year
 
 ## Stats 
 
@@ -1643,13 +1661,13 @@ Required field for Stats by Id
 
 Method | HTTPS Request | Description
  ------- | --------- | ---------
-get      | GET /stats/stattype/gameId/playerId
+get      | GET /stats/statType/gameId/playerId
 
 Required fields for Stats by Name and Week
 
 Method | HTTPS Request | Description
  ------- | --------- | ---------
- get     | GET /stats//statType/year/week/seasonPhase/firstName/lastName |
+ get     | GET /stats//statType/year/week/seasonPhase/lastName/firstName |
 
 <h1 id="NFLData"> NFL Data Websocket (Deprecated)</h1>
 
