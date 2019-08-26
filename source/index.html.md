@@ -1625,8 +1625,8 @@ Testnet address: https://test.api.suredbits.com/nfl/v0/info
 
 Mainnnet address: https://api.suredbits.com/nfl/v0/games
 
-Method | HTTPS Request | Description
- ------- | --------- | ---------
+Method | HTTPS Request | 
+ ------- | --------- | 
 get       | GET /games/week/seasonPhase | 
 get       | GET /games/week/seasonPhase/year | 
 get       | GET /games/week/seasonPhase/year/teamId | 
@@ -1638,16 +1638,16 @@ get       | GET /games/realtime/teamId |
 
 Mainnnet address: https://api.suredbits.com/nfl/v0/players
 
-Method | HTTPS Request | Description
- ------- | --------- | ---------
+Method | HTTPS Request | 
+ ------- | --------- | 
 get      | GET /players/lastName/firstName
 
 ## Team
 
 Mainnnet address: https://api.suredbits.com/nfl/v0/team
 
-Method | HTTPS Request | Description
- ------- | --------- | ---------
+Method | HTTPS Request | 
+ ------- | --------- | 
  get     | GET /team/teamId/roster
  get     | GET /team/teamId/schedule 
  get     | GET /team/teamId/roster/year
@@ -1659,14 +1659,13 @@ Mainnnet address: https://api.suredbits.com/nfl/v0/stats
 
 Required field for Stats by Id
 
-Method | HTTPS Request | Description
- ------- | --------- | ---------
+Method | HTTPS Request | 
+ ------- | --------- | 
 get      | GET /stats/statType/gameId/playerId
 
 Required fields for Stats by Name and Week
 
-Method | HTTPS Request | Description
- ------- | --------- | ---------
+ ------- | --------- | 
  get     | GET /stats//statType/year/week/seasonPhase/lastName/firstName |
 
 <h1 id="NFLData"> NFL Data Websocket (Deprecated)</h1>
