@@ -1599,6 +1599,42 @@ get    |  GET /exchange/pair/year/period | Returns the pricing data for the spec
 
 # NFL Data 
 
+Our NFL API allows you to query data across `Games`, `Players`, `Team`, and `Stats` on the Lightning Network. 
+
+Mainnet address: [https://api.suredbits.com/nfl/v0](https://api.suredbits.com/nfl/v0)
+
+Testnet address: [https://test.api.suredbits.com/nfl/v0](https://test.api.suredbits.com/nfl/v0)
+
+## Encrypted payloads
+
+All data server over our REST endpoints are sent to you immediately, but they are encrypted.
+The decryption key is the preimage that was used to generate the invoice we sent you. Your
+Lightning Client provides you with this preimage upon paying the invoice. 
+
+### Technical details
+
+The payloads are encrypted with AES in CFB mode, with no padding to the plaintext. The 
+initialization vector (IV) is prepended to the payload, and the resulting byte sequence
+is base64-encoded. When decrypting you decode the base64 string, take the first 16 bytes
+as your IV and the rest as the encrypted payload. 
+
+
+### Reference implementations
+
+Reference implementations for this is available in [JavaScript](https://gist.github.com/torkelrogstad/4611d73567cdcbc40d1da144169c9b03),
+[Python](https://gist.github.com/torkelrogstad/9f57c9ec2f14322a9c1ce0a863f4ad50) and 
+[Scala](https://github.com/torkelrogstad/bitcoin-s/blob/21f69158de361349a3ef1abe6f94f042af144ea9/core/src/main/scala/org/bitcoins/core/crypto/AesCrypt.scala).
+
+
+### Client library
+
+You can also use our JavaScript client library (published as 
+[`sb-api`](https://www.npmjs.com/package/sb-api) on npm) which handles both
+constructing the request, paying the Lightning invoice, decrypting the payload
+with the preimage to the invoice and then finally returning the decrypted
+data you requested. 
+
+
 ## Data Types 
 
 Type | Example
