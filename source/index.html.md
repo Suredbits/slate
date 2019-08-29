@@ -95,11 +95,14 @@ All data is currently available on both mainnet and testnet.
 ```
 
 ```javascript
-import {  Lnd, Sockets } from "sb-api"
+import {  Lnd, NflRestAPI } from "sb-api"
 const ln = await Lnd()
 
-const nfl = await Sockets.nflTestnet(ln)
-const players = await nfl.players() // automatically queries for Tom Brady since we're on testnet
+const players = await NflRestAPI(ln).players({
+   network: 'testnet',
+   firstName: 'Tom',
+   lastName: 'Brady',
+})
 ```
 
 > Example request for "NE" (New England) roster in "Team" endpoint
@@ -115,11 +118,12 @@ const players = await nfl.players() // automatically queries for Tom Brady since
 ```
 
 ```javascript
-import {  Lnd, Sockets } from "sb-api"
+import {  Lnd, NflRestAPI } from "sb-api"
 const ln = await Lnd()
 
-const nfl = await Sockets.nflTestnet(ln)
-const roster = await nfl.roster({ teamId: "NE" })
+const players = await NflRestAPI(ln).roster({
+   teamId: 'NE',
+})
 ```
 
 > Example request for Tom Brady in "Stats" endpoint by lastName and firstName
@@ -139,15 +143,14 @@ const roster = await nfl.roster({ teamId: "NE" })
 ```
 
 ```javascript
-import {  Lnd, Sockets } from "sb-api"
+import {  Lnd, NflRestAPI } from "sb-api"
 const ln = await Lnd()
 
-const nfl = await Sockets.nflTestnet(ln)
-const stats = await nfl.statsByNameAndWeek({
+const players = await NflRestAPI(ln).statsByName({
   year: 2018,
   week: 2,
-  seasonPhase: "Postseason",
-  statType: "passing"
+  seasonPhase: 'postseason',
+  statType: 'passing',
 })
 ```
 
@@ -165,14 +168,13 @@ const stats = await nfl.statsByNameAndWeek({
 ```
 
 ```javascript
-import {  Lnd, Sockets } from "sb-api"
+import {  Lnd, NflRestAPI } from "sb-api"
 const ln = await Lnd()
 
-const nfl = await Sockets.nflTestnet(ln)
-const stats = await nfl.statsById({
-  statType: "passing",
-  gameId: "2019011300",
-  playerId: "00-0019596"
+const stats = await NflRestAPI(ln).statsById({
+  statType: 'passing',
+  gameId: '2019011300',
+  playerId: '00-0019596',
 })
 ```
 
@@ -1610,14 +1612,6 @@ This is the free service url **wss://test.api.suredbits.com/nfl/v0** on testnet.
 
 > Example request
 
-```javascript
-import { Lnd, Sockets } from 'sb-api'
-const ln = await Lnd()
-
-const nfl = await Sockets.nfl(ln)
-const info = await nfl.info()
-```
-
 ```json
 {
    "channel": "info", 
@@ -1628,16 +1622,6 @@ const info = await nfl.info()
 This provides a check and confirmation on the status of the API. 
 
 > Example data
-
-```javascript
-{
-  version: '8',
-  lastRosterDownload: '2018-08-13T17:07:53.668Z',
-  seasonType: 'Preseason',
-  seasonYear: 2018,
-  week: 'NflPreSeasonWeek1'
-}
-```
 
 ```json
 {
@@ -1659,11 +1643,14 @@ This provides a check and confirmation on the status of the API.
 > Example request Games
 
 ```javascript
-import { Lnd, Sockets } from 'sb-api'
+import { Lnd, NflRestAPI } from 'sb-api'
 const ln = await Lnd()
 
-const nfl = await Sockets.nfl(ln)
-const games = await nfl.games({ week: 1, seasonPhase: 'Regular', year: 2017 })
+const games = await NflRestAPI(ln).games({
+  week: 1,
+  seasonPhase: 'regular',
+  year: 2017,
+})
 ```
 
 ```json
@@ -1800,11 +1787,13 @@ Field | Type | Example
 > Example request Players
 
 ```javascript
-import { Lnd, Sockets } from 'sb-api'
+import { Lnd, NflRestAPI } from 'sb-api'
 const ln = await Lnd()
 
-const nfl = await Sockets.nfl(ln)
-const players = await nfl.players({ firstName: 'Randy', lastName: 'Moss' })
+const players = await NflRestAPI(ln).players({
+  firstName: 'Randy',
+  lastName: 'Moss',
+})
 ```
 
 ```json
@@ -1886,11 +1875,12 @@ Field | Type | Example
 > Example request Rosters
 
 ```javascript
-import { Lnd, Sockets } from 'sb-api'
+import { Lnd, NflRestAPI } from 'sb-api'
 const ln = await Lnd()
 
-const nfl = await Sockets.nfl(ln)
-const roster = await nfl.roster({ teamId: 'MIN' })
+const roster = await NflRestAPI(ln).roster({
+  teamId: 'MIN',
+})
 ```
 
 ```json
@@ -1907,11 +1897,14 @@ const roster = await nfl.roster({ teamId: 'MIN' })
 > Example request Rosters in Year
 
 ```javascript
-import { Lnd, Sockets } from 'sb-api'
+import { Lnd, NflRRestAPI } from 'sb-api'
 const ln = await Lnd()
 
-const nfl = await Sockets.nfl(ln)
-const roster = await nfl.roster({ teamId: 'MIN', year: 2018 }
+const roster = await NflRestAPI(ln).roster({
+  teamId: 'MIN',
+  year: 2018
+})
+
 ```
 
 ```json
@@ -1980,11 +1973,12 @@ const roster = await nfl.roster({ teamId: 'MIN', year: 2018 }
 > Example request Schedules
   
 ```javascript
-import { Lnd, Sockets } from 'sb-api'
+import { Lnd, NflRestAPI } from 'sb-api'
 const ln = await Lnd()
   
-const nfl = await Sockets.nfl(ln)
-const schedule = await nfl.schedule({ teamId: 'CHI' })
+const roster = await NflRestAPI(ln).schedule({
+  teamId: 'CHI',
+}
 ```
 
 ```json
@@ -2125,14 +2119,13 @@ KC	| Kansas City Chiefs	| WAS	| Washington Redskins
 > Example request Stats #1
 
 ```javascript
-import { Lnd, Sockets } from 'sb-api'
+import { Lnd, NflRestAPI } from 'sb-api'
 const ln = await Lnd()
 
-const nfl = await Sockets.nfl(ln)
-const stats = await nfl.statsById({ 
-  gameId: '2016101604', 
-  playerId: '00=0027973', 
-  statType: 'passing' 
+const roster = await NflRestAPI(ln).statsById({
+  gameId: '2016101604',
+  playerId: '00=0027973',
+  statType: 'passing',
 })
 ```
 
@@ -2148,11 +2141,10 @@ const stats = await nfl.statsById({
 > Example request Stats #2
 
 ```javascript
-import { Lnd, Sockets } from 'sb-api'
+import { Lnd, NflRestAPI } from 'sb-api'
 const ln = await Lnd()
 
-const nfl = await Sockets.nfl(ln)
-const stats = await nfl.statsByNameAndWeek({
+const stats = await NflRestAPI(ln).statsByName({
   firstName: 'Drew',
   lastName: 'Brees',
   seasonPhase: 'Regular',
@@ -2160,7 +2152,6 @@ const stats = await nfl.statsByNameAndWeek({
   week: 1,
   year: 2017,
 })
-
 ```
 ```json
 {
