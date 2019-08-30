@@ -1657,6 +1657,10 @@ Mainnnet address: https://api.suredbits.com/nfl/v0/info
 
 Testnet address: https://test.api.suredbits.com/nfl/v0/info
 
+Method | HTTPS Request | Description
+ ------- | --------- | ------------
+ get     | GET /info | Confirms 
+
 ## Games
 
 > Example Games Request
@@ -1705,14 +1709,14 @@ Testnet address: https://test.api.suredbits.com/nfl/v0/info
 
 Mainnnet address: https://api.suredbits.com/nfl/v0/games
 
-Method | HTTPS Request | 
- ------- | --------- | 
-get       | GET /games/week/seasonPhase | 
-get       | GET /games/week/seasonPhase/year | 
-get       | GET /games/week/seasonPhase/year/teamId | 
-get       | GET /games/week/seasonPhase/teamId
-get       | GET /games/realtime     |
-get       | GET /games/realtime/teamId | 
+Method | HTTPS Request | Description
+ ------- | --------- | ------------
+get       | GET /games/week/seasonPhase | Returns data by week and season (`Preseason`, `Regualar`, or `Postseason`)
+get       | GET /games/week/seasonPhase/year | Returns data by week, season and year
+get       | GET /games/week/seasonPhase/year/teamId | Returns data by weak, season, year and team
+get       | GET /games/week/seasonPhase/teamId | Returns data by week, season and just teamid
+get       | GET /games/realtime     | Returns data for games in progress
+get       | GET /games/realtime/teamId | Returns data for games in progress by team
  
 ## Players
 
@@ -1750,9 +1754,9 @@ get       | GET /games/realtime/teamId |
 
 Mainnnet address: https://api.suredbits.com/nfl/v0/players
 
-Method | HTTPS Request | 
- ------- | --------- | 
-get      | GET /players/lastName/firstName
+Method | HTTPS Request | Description
+ ------- | --------- | -----------
+get      | GET /players/lastName/firstName | Returns data for individual players 
 
 ## Team
 
@@ -1804,12 +1808,12 @@ get      | GET /players/lastName/firstName
 
 Mainnnet address: https://api.suredbits.com/nfl/v0/team
 
-Method | HTTPS Request | 
- ------- | --------- | 
- get     | GET /team/teamId/roster
- get     | GET /team/teamId/schedule 
- get     | GET /team/teamId/roster/year
- get     | GET /team/teamId/schedule/year
+Method | HTTPS Request | Description
+ ------- | --------- | ----------
+ get     | GET /team/teamId/roster | Returns data by teamid for their roster
+ get     | GET /team/teamId/schedule | Returns data by team id for their schedule
+ get     | GET /team/teamId/roster/year | Returns data by team id for their roster by year
+ get     | GET /team/teamId/schedule/year | Returns data by team id for their schedule by year
 
 ## Stats 
 
@@ -1846,15 +1850,15 @@ Mainnnet address: https://api.suredbits.com/nfl/v0/stats
 
 Required field for Stats by Id
 
-Method | HTTPS Request | 
- ------- | --------- | 
-get      | GET /stats/statType/gameId/playerId
+Method | HTTPS Request | Description
+ ------- | --------- | ------------
+get      | GET /stats/statType/gameId/playerId | Returns data for a player statistics by statistic type and individual game and player
 
 Required fields for Stats by Name and Week
 
-Method   | HTTPS Request |
- ------- | --------- | 
- get     | GET /stats/statType/year/week/seasonPhase/lastName/firstName |
+Method   | HTTPS Request | Description
+ ------- | --------- | -----------
+ get     | GET /stats/statType/year/week/seasonPhase/lastName/firstName | Returns statistics for a player by satistic type for specific year, week, and season by player name
 
 <h1 id="NFLData"> NFL Data Websocket (Deprecated)</h1>
 
