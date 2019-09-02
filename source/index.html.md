@@ -1599,7 +1599,7 @@ Method | HTTPS Request | Description
 get    |  GET /exchange/pair/year/period | Returns the pricing data for the specific `period` requested.
 
 
-# NFL Data 
+# NFL Data API
 
 Our NFL API allows you to query data across `Games`, `Players`, `Team`, and `Stats`. 
 
