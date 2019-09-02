@@ -1659,7 +1659,7 @@ Testnet address: https://test.api.suredbits.com/nfl/v0/info
 
 Method | HTTPS Request | Description
  ------- | --------- | ------------
- get     | GET /info | Confirms 
+ get     | GET /info | Confirms connection and gives server status
 
 ## Games
 
