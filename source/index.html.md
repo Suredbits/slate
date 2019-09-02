@@ -1709,6 +1709,8 @@ Method | HTTPS Request | Description
 
 Mainnnet address: https://api.suredbits.com/nfl/v0/games
 
+Testnet address: https://test.api.suredbits.com/nfl/v0games
+
 Method | HTTPS Request | Description
  ------- | --------- | ------------
 get       | GET /games/week/seasonPhase | Returns data by week and season (`Preseason`, `Regualar`, or `Postseason`)
@@ -1753,6 +1755,8 @@ get       | GET /games/realtime/teamId | Returns data for games in progress by t
 ```
 
 Mainnnet address: https://api.suredbits.com/nfl/v0/players
+
+Testnet address: https://test.api.suredbits.com/nfl/v0/players
 
 Method | HTTPS Request | Description
  ------- | --------- | -----------
@@ -1808,6 +1812,8 @@ get      | GET /players/lastName/firstName | Returns data for individual players
 
 Mainnnet address: https://api.suredbits.com/nfl/v0/team
 
+Testnet address: https://test.api.suredbits.com/nfl/v0/team
+
 Method | HTTPS Request | Description
  ------- | --------- | ----------
  get     | GET /team/teamId/roster | Returns data by teamid for their roster
@@ -1847,6 +1853,8 @@ Method | HTTPS Request | Description
 ```
 
 Mainnnet address: https://api.suredbits.com/nfl/v0/stats
+
+Testnet address: https://test.api.suredbits.com/nfl/v0/stats
 
 Required field for Stats by Id
 
