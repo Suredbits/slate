@@ -1669,6 +1669,7 @@ Method | HTTPS Request | Description
 
 > https://api.suredbits.com/nfl/v0/games/1/regular/2017
 
+
 ```javascript
 import { Lnd, NflRestAPI } from 'sb-api'
 const ln = await Lnd()
