@@ -1653,9 +1653,9 @@ Type | Example
 
 ## Info
 
-Mainnnet address: https://api.suredbits.com/nfl/v0/info
+Mainnnet address: [https://api.suredbits.com/nfl/v0/info] (https://api.suredbits.com/nfl/v0/info)
 
-Testnet address: https://test.api.suredbits.com/nfl/v0/info
+Testnet address: [https://test.api.suredbits.com/nfl/v0/info] (https://test.api.suredbits.com/nfl/v0/info)
 
 Method | HTTPS Request | Description
  ------- | --------- | ------------
@@ -1707,9 +1707,9 @@ Method | HTTPS Request | Description
 
 ```
 
-Mainnnet address: https://api.suredbits.com/nfl/v0/games
+Mainnnet address: [https://api.suredbits.com/nfl/v0/games] (https://api.suredbits.com/nfl/v0/games)
 
-Testnet address: https://test.api.suredbits.com/nfl/v0games
+Testnet address: [https://test.api.suredbits.com/nfl/v0games] (https://test.api.suredbits.com/nfl/v0games)
 
 Method | HTTPS Request | Description
  ------- | --------- | ------------
@@ -1754,9 +1754,9 @@ get       | GET /games/realtime/teamId | Returns data for games in progress by t
 
 ```
 
-Mainnnet address: https://api.suredbits.com/nfl/v0/players
+Mainnnet address: [https://api.suredbits.com/nfl/v0/players] (https://api.suredbits.com/nfl/v0/players)
 
-Testnet address: https://test.api.suredbits.com/nfl/v0/players
+Testnet address: [https://test.api.suredbits.com/nfl/v0/players] (https://test.api.suredbits.com/nfl/v0/players)
 
 Method | HTTPS Request | Description
  ------- | --------- | -----------
@@ -1810,9 +1810,9 @@ get      | GET /players/lastName/firstName | Returns data for individual players
 
 ```
 
-Mainnnet address: https://api.suredbits.com/nfl/v0/team
+Mainnnet address: [https://api.suredbits.com/nfl/v0/team] (https://api.suredbits.com/nfl/v0/team)
 
-Testnet address: https://test.api.suredbits.com/nfl/v0/team
+Testnet address: [https://test.api.suredbits.com/nfl/v0/team] (https://test.api.suredbits.com/nfl/v0/team)
 
 Method | HTTPS Request | Description
  ------- | --------- | ----------
@@ -1852,9 +1852,9 @@ Method | HTTPS Request | Description
 
 ```
 
-Mainnnet address: https://api.suredbits.com/nfl/v0/stats
+Mainnnet address: [https://api.suredbits.com/nfl/v0/stats] (https://api.suredbits.com/nfl/v0/stats)
 
-Testnet address: https://test.api.suredbits.com/nfl/v0/stats
+Testnet address: [https://test.api.suredbits.com/nfl/v0/stats] (https://test.api.suredbits.com/nfl/v0/stats)
 
 Required field for Stats by Id
 
