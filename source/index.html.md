@@ -1669,6 +1669,17 @@ Method | HTTPS Request | Description
 
 > https://api.suredbits.com/nfl/v0/games/1/regular/2017
 
+```javascript
+import { Lnd, NflRestAPI } from 'sb-api'
+const ln = await Lnd()
+
+const games = await NflRestAPI(ln).games({
+  week: 1,
+  seasonPhase: 'regular',
+  year: 2017,
+})
+```
+
 > Example Games Data
 
 ```json
@@ -1709,6 +1720,42 @@ Method | HTTPS Request | Description
 
 ```
 
+```javascript
+[
+  {
+    gsisId: '2017091006',
+    gameKey: '57241',
+    startTime: '2017-09-10T17:00:00.000Z',
+    week: 'NflWeek1',
+    dayOfWeek: 'Sunday',
+    seasonYear: 2017,
+    seasonType: 'Regular',
+    finished: true,
+    homeTeam: {
+      team: 'MIA',
+      score: 0,
+      scoreQ1: 0,
+      scoreQ2: 0,
+      scoreQ3: 0,
+      scoreQ4: 0,
+      turnovers: 0,
+    },
+    awayTeam: {
+      team: 'TB',
+      score: 0,
+      scoreQ1: 0,
+      scoreQ2: 0,
+      scoreQ3: 0,
+      scoreQ4: 0,
+      turnovers: 0,
+    },
+    timeInserted: '2017-08-04T18:29:15.669Z',
+    timeUpdate: '2018-06-08T19:34:44.063Z',
+  },
+  // more elements omitted for brevity
+]
+```
+
 Mainnnet address: [https://api.suredbits.com/nfl/v0/games] (https://api.suredbits.com/nfl/v0/games)
 
 Testnet address: [https://test.api.suredbits.com/nfl/v0games] (https://test.api.suredbits.com/nfl/v0games)
@@ -1728,6 +1775,16 @@ get       | GET /games/realtime/teamId | Returns data for games in progress by t
 > Example Players Request
 
 > https://api.suredbits.com/nfl/v0/players/Brady/Tom
+
+```javascript
+import { Lnd, NflRestAPI } from 'sb-api'
+const ln = await Lnd()
+
+const players = await NflRestAPI(ln).players({
+  firstName: 'Randy',
+  lastName: 'Moss',
+})
+```
 
 > Example Players Data
 
@@ -1756,6 +1813,30 @@ get       | GET /games/realtime/teamId | Returns data for games in progress by t
 
 ```
 
+
+```javascript
+[
+  {
+    playerId: '00-0011754',
+    gsisName: 'R.Moss',
+    fullName: 'Randy Moss',
+    firstName: 'Randy',
+    lastName: 'Moss',
+    team: 'UNK',
+    position: 'UNK',
+    profileId: 2502220,
+    profileUrl: 'http://www.nfl.com/player/randymoss/2502220/profile',
+    birthDate: '2/13/1977',
+    college: 'Marshall',
+    yearsPro: 14,
+    height: 76,
+    weight: 210,
+    status: 'Unknown',
+  }
+]
+```
+
+
 Mainnnet address: [https://api.suredbits.com/nfl/v0/players] (https://api.suredbits.com/nfl/v0/players)
 
 Testnet address: [https://test.api.suredbits.com/nfl/v0/players] (https://test.api.suredbits.com/nfl/v0/players)
@@ -1769,6 +1850,15 @@ get      | GET /players/lastName/firstName | Returns data for individual players
 > Example Team Request
 
 > https://api.suredbits.com/nfl/v0/team/chi/schedule
+
+```javascript
+import { Lnd, NflRestAPI } from 'sb-api'
+const ln = await Lnd()
+
+const roster = await NflRestAPI(ln).roster({
+  teamId: 'MIN',
+})
+```
 
 > Example Team Data
 
@@ -1812,6 +1902,30 @@ get      | GET /players/lastName/firstName | Returns data for individual players
 
 ```
 
+```javascript
+[
+  {
+    playerId: '00-0027981',
+    gsisName: 'K.Rudolph',
+    fullName: 'Kyle Rudolph',
+    firstName: 'Kyle',
+    lastName: 'Rudolph',
+    team: 'MIN',
+    position: 'TE',
+    profileId: 2495438,
+    profileUrl: 'http://www.nfl.com/player/kylerudolph/2495438/profile',
+    uniformNumber: 82,
+    birthDate: '11/9/1989',
+    college: 'Notre Dame',
+    yearsPro: 8,
+    height: 78,
+    weight: 265,
+    status: 'Active',
+  },
+  // more elements omitted for brevity
+]
+```
+
 Mainnnet address: [https://api.suredbits.com/nfl/v0/team] (https://api.suredbits.com/nfl/v0/team)
 
 Testnet address: [https://test.api.suredbits.com/nfl/v0/team] (https://test.api.suredbits.com/nfl/v0/team)
@@ -1828,6 +1942,17 @@ Method | HTTPS Request | Description
 > Example Stats Request
 
 > https://api.suredbits.com/nfl/v0/stats/Brees/Drew/2017/1/regular/passing
+
+```javascript
+import { Lnd, NflRestAPI } from 'sb-api'
+const ln = await Lnd()
+
+const roster = await NflRestAPI(ln).statsById({
+  gameId: '2016101604',
+  playerId: '00=0027973',
+  statType: 'passing',
+})
+```
 
 > Example Stats Data
 
@@ -1854,6 +1979,26 @@ Method | HTTPS Request | Description
 
 ```
 
+```javascript
+[
+  {
+    att: 37,
+    cmp: 27,
+    cmpAirYds: 167,
+    inCmp: 10,
+    inCmpAirYds: 75,
+    passingInt: 0,
+    sack: 1,
+    sackYds: -7,
+    passingTds: 1,
+    passingTwoPointAttempt: 0,
+    passingTwoPointAttemptMade: 0,
+    passingTwoPointAttemptMissed: 0,
+    passingYds: 291,
+  }
+]
+```
+
 Mainnnet address: [https://api.suredbits.com/nfl/v0/stats] (https://api.suredbits.com/nfl/v0/stats)
 
 Testnet address: [https://test.api.suredbits.com/nfl/v0/stats] (https://test.api.suredbits.com/nfl/v0/stats)
@@ -1870,10 +2015,9 @@ Method   | HTTPS Request | Description
  ------- | --------- | -----------
  get     | GET /stats/statType/year/week/seasonPhase/lastName/firstName | Returns statistics for a player by satistic type for specific year, week, and season by player name
 
-<h1 id="NFLData"> NFL Data Websocket (Deprecated)</h1>
+# NFL Data Websocket (Deprecated)
 
 ## NFL Websocket Endpoints
-
 
 This is the paid service url **wss://api.suredbits.com/nfl/v0** on mainnet.
 
