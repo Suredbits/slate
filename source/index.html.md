@@ -1599,7 +1599,278 @@ Method | HTTPS Request | Description
 get    |  GET /exchange/pair/year/period | Returns the pricing data for the specific `period` requested.
 
 
-<h1 id="NFLData"> NFL Data</h1>
+# NFL Data 
+
+Our NFL API allows you to query data across `Games`, `Players`, `Team`, and `Stats`. 
+
+Mainnet address: [https://api.suredbits.com/nfl/v0](https://api.suredbits.com/nfl/v0)
+
+Testnet address: [https://test.api.suredbits.com/nfl/v0](https://test.api.suredbits.com/nfl/v0)
+
+## Encrypted payloads
+
+All data server over our REST endpoints are sent to you immediately, but they are encrypted.
+The decryption key is the preimage that was used to generate the invoice we sent you. Your
+Lightning Client provides you with this preimage upon paying the invoice. 
+
+### Technical details
+
+The payloads are encrypted with AES in CFB mode, with no padding to the plaintext. The 
+initialization vector (IV) is prepended to the payload, and the resulting byte sequence
+is base64-encoded. When decrypting you decode the base64 string, take the first 16 bytes
+as your IV and the rest as the encrypted payload. 
+
+
+### Reference implementations
+
+Reference implementations for this is available in [JavaScript](https://gist.github.com/torkelrogstad/4611d73567cdcbc40d1da144169c9b03),
+[Python](https://gist.github.com/torkelrogstad/9f57c9ec2f14322a9c1ce0a863f4ad50) and 
+[Scala](https://github.com/torkelrogstad/bitcoin-s/blob/21f69158de361349a3ef1abe6f94f042af144ea9/core/src/main/scala/org/bitcoins/core/crypto/AesCrypt.scala).
+
+
+### Client library
+
+You can also use our JavaScript client library (published as 
+[`sb-api`](https://www.npmjs.com/package/sb-api) on npm) which handles both
+constructing the request, paying the Lightning invoice, decrypting the payload
+with the preimage to the invoice and then finally returning the decrypted
+data you requested. 
+
+
+## Data Types 
+
+Type | Example
+----- | -------
+`seasonPhase` | `Preseason`, `Regular`, `Postseason`
+`teamId` | `CHI`, `NE`, `BAL`, etc.  <a href="#TeamID">See Team ID Table</a>
+`realTime` | `true`
+`firstName` | `Khalil`, `Tom`, `Saquon`, etc. 
+`lastName` | `Mack` `Brady`, `Barkley`, etc. 
+`retrieve` | `roster`, `schedule` 
+`year` | `2018`, `2015`, `2011`, etc.
+`statType` | `passing`, `rushing`, `receiving`, `defense`
+`gameId` |  `2016101604`
+`playerId` | `00-0027973`
+
+
+## Info
+
+Mainnnet address: [https://api.suredbits.com/nfl/v0/info] (https://api.suredbits.com/nfl/v0/info)
+
+Testnet address: [https://test.api.suredbits.com/nfl/v0/info] (https://test.api.suredbits.com/nfl/v0/info)
+
+Method | HTTPS Request | Description
+ ------- | --------- | ------------
+ get     | GET /info | Confirms connection and gives server status
+
+## Games
+
+> Example Games Request
+
+> https://api.suredbits.com/nfl/v0/games/1/regular/2017
+
+> Example Games Data
+
+```json
+
+[
+      {
+      "gsisId":"2017091006",
+      "gameKey":"57241",
+      "startTime":"2017-09-10T17:00:00.000Z",
+      "week":"NflWeek1",
+      "dayOfWeek":"Sunday",
+      "seasonYear":2017,
+      "seasonType":"Regular",
+      "finished":true,
+      "homeTeam":{
+        "team":"MIA",
+        "score":0,
+        "scoreQ1":0,
+        "scoreQ2":0,
+        "scoreQ3":0,
+        "scoreQ4":0,
+        "turnovers":0
+        },
+      "awayTeam":{
+        "team":"TB",
+        "score":0,
+        "scoreQ1":0,
+        "scoreQ2":0,
+        "scoreQ3":0,
+        "scoreQ4":0,
+        "turnovers":0
+      },
+      "timeInserted":"2017-08-04T18:29:15.669Z",
+      "timeUpdate":"2018-06-08T19:34:44.063Z",
+     },
+     ...
+]
+
+```
+
+Mainnnet address: [https://api.suredbits.com/nfl/v0/games] (https://api.suredbits.com/nfl/v0/games)
+
+Testnet address: [https://test.api.suredbits.com/nfl/v0games] (https://test.api.suredbits.com/nfl/v0games)
+
+Method | HTTPS Request | Description
+ ------- | --------- | ------------
+get       | GET /games/week/seasonPhase | Returns data by week and season (`Preseason`, `Regualar`, or `Postseason`)
+get       | GET /games/week/seasonPhase/year | Returns data by week, season and year
+get       | GET /games/week/seasonPhase/year/teamId | Returns data by weak, season, year and team
+get       | GET /games/week/seasonPhase/teamId | Returns data by week, season and just teamid
+get       | GET /games/realtime     | Returns data for games in progress
+get       | GET /games/realtime/teamId | Returns data for games in progress by team
+ 
+## Players
+
+
+> Example Players Request
+
+> https://api.suredbits.com/nfl/v0/players/Brady/Tom
+
+> Example Players Data
+
+```json
+
+[  
+      {  
+         "playerId":"00-0019596",
+         "gsisName":"T.Brady",
+         "fullName":"Tom Brady",
+         "firstName":"Tom",
+         "lastName":"Brady",
+         "team":"NE",
+         "position":"QB",
+         "profileId":2504211,
+         "profileUrl":"http://www.nfl.com/player/tombrady/2504211/profile",
+         "uniformNumber":12,
+         "birthDate":"8/3/1977",
+         "college":"Michigan",
+         "yearsPro":20,
+         "height":76,
+         "weight":225,
+         "status":"Active"
+      }
+   ]
+
+```
+
+Mainnnet address: [https://api.suredbits.com/nfl/v0/players] (https://api.suredbits.com/nfl/v0/players)
+
+Testnet address: [https://test.api.suredbits.com/nfl/v0/players] (https://test.api.suredbits.com/nfl/v0/players)
+
+Method | HTTPS Request | Description
+ ------- | --------- | -----------
+get      | GET /players/lastName/firstName | Returns data for individual players 
+
+## Team
+
+> Example Team Request
+
+> https://api.suredbits.com/nfl/v0/team/chi/schedule
+
+> Example Team Data
+
+```json
+
+[
+      {
+        "gsisId":"2017091001",
+        "gameKey":"57236",
+        "startTime":"2017-09-10T170000.000Z",
+        "week":"NflWeek1",
+        "dayOfWeek":"Sunday",
+        "seasonYear":2017,
+        "seasonType":"Regular",
+        "finished":true,
+        "homeTeam":
+      {
+        "team":"CHI",
+        "score":17,
+        "scoreQ1":0,
+        "scoreQ2":10,
+        "scoreQ3":0,
+        "scoreQ4":7,
+        "turnovers":0
+      },
+    "awayTeam":
+      {
+        "team":"ATL",
+        "score":23,
+        "scoreQ1":3,
+        "scoreQ2":7,
+        "scoreQ3":3,
+        "scoreQ4":10,
+        "turnovers":1
+      },
+    "timeInserted":"2017-08-04T182915.669Z",
+    "timeUpdate":"2018-06-08T192330.452Z",
+    },
+    ...
+   ]
+
+```
+
+Mainnnet address: [https://api.suredbits.com/nfl/v0/team] (https://api.suredbits.com/nfl/v0/team)
+
+Testnet address: [https://test.api.suredbits.com/nfl/v0/team] (https://test.api.suredbits.com/nfl/v0/team)
+
+Method | HTTPS Request | Description
+ ------- | --------- | ----------
+ get     | GET /team/teamId/roster | Returns data by teamid for their roster
+ get     | GET /team/teamId/schedule | Returns data by team id for their schedule
+ get     | GET /team/teamId/roster/year | Returns data by team id for their roster by year
+ get     | GET /team/teamId/schedule/year | Returns data by team id for their schedule by year
+
+## Stats 
+
+> Example Stats Request
+
+> https://api.suredbits.com/nfl/v0/stats/Brees/Drew/2017/1/regular/passing
+
+> Example Stats Data
+
+```json
+
+ [
+      {
+        "att":37,
+        "cmp":27,
+        "cmpAirYds":167,
+        "inCmp":10,
+        "inCmpAirYds": 75,
+        "passingInt":0,
+        "sack":1,
+        "sackYds":-7,
+        "passingTds":1,
+        "passingTwoPointAttempt":0,
+        "passingTwoPointAttemptMade":0,
+        "passingTwoPointAttemptMissed":0,
+        "passingYds":291,
+       },
+       ...
+    ]
+
+```
+
+Mainnnet address: [https://api.suredbits.com/nfl/v0/stats] (https://api.suredbits.com/nfl/v0/stats)
+
+Testnet address: [https://test.api.suredbits.com/nfl/v0/stats] (https://test.api.suredbits.com/nfl/v0/stats)
+
+Required field for Stats by Id
+
+Method | HTTPS Request | Description
+ ------- | --------- | ------------
+get      | GET /stats/statType/gameId/playerId | Returns data for a player statistics by statistic type and individual game and player
+
+Required fields for Stats by Name and Week
+
+Method   | HTTPS Request | Description
+ ------- | --------- | -----------
+ get     | GET /stats/statType/year/week/seasonPhase/lastName/firstName | Returns statistics for a player by satistic type for specific year, week, and season by player name
+
+<h1 id="NFLData"> NFL Data Websocket (Deprecated)</h1>
 
 ## NFL Websocket Endpoints
 
