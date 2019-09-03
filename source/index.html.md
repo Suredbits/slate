@@ -1938,6 +1938,29 @@ Method | HTTPS Request | Description
  get     | GET /team/teamId/roster/year | Returns data by team id for their roster by year
  get     | GET /team/teamId/schedule/year | Returns data by team id for their schedule by year
 
+<aside class="notice">See the table below for individual team IDs. </aside>
+
+### Team ID Table
+
+Team Id	| City & Name | TeamID | City & Name
+-------- | ----------- | ------ | ---------
+ARI	| Arizona Cardinals	| LA   | Los Angeles Rams
+ATL	| Atlanta Falcons	| MIA  | Miami Dolphins
+BAL	| Baltimore Ravens	| MIN | Minnesota Vikings
+BUF	| Buffalo Bills	NE	| NE  | New England Patriots
+CAR	| Carolina Panthers	| NO | New Orleans Saints
+CHI	| Chicago Bears	NYG	| NYG | New York Giants
+CIN	| Cincinnati Bengals	| NYJ	| New York Jets
+CLE	| Cleveland Browns	| OAK	| Oakland Raiders
+DAL	| Dallas Cowboys	| PHI	| Philadelphia Eagles
+DEN	| Denver Broncos	| PIT	| Pittsburgh Steelers
+DET	| Detroit Lions	SD	| SD   | San Diego Chargers
+GB	| Green Bay Packers	| SEA	| Seattle Seahawks
+HOU	| Houston Texans	| SF	| San Francisco 49ers
+IND	| Indianpolis Colts	| TB	| Tampa Bay Buccaneers
+JAC	| Jacksonville Jaguars	| TEN	| Tennessee Titans
+KC	| Kansas City Chiefs	| WAS	| Washington Redskins
+
 ## Stats 
 
 > Example Stats Request
