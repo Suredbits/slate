@@ -1446,6 +1446,15 @@ Testnet address: [https://test.api.suredbits.com/historical/v0](https://test.api
 
 ## Encrypted payloads
 
+> Encrypted payload sample
+
+```json
+{
+  "invoice": "lnbc10n1pweta5npp5ffsrav84lwkgjumhw0yt8l25zefn3gpd0ew4dnsyjmlvvwv6yx7qdzj2d6hyetyvf5hgueqg9gyjw3qxuur2cfk8y6rzttxx9jnytf5xf3kvttpvy6kztf3vyurxd3kx3snzvphxvxqrrss92r3pp96hnxgrm4w5x3asxlqhgyarxzr8mhm8lljznp7se0tzv6jz52s475e4svef0xylym2c6w3tdhfhtpcy3l4w054vt6x848pejgqhx7hm6",
+  "encryptedData":"0EU5jwkZhe+RLOyvs/+a5rybYG/egP4dFnHpGULJXLsFUB/voPbFGSyLYXTra3d2g60RpRXbH54X+Z/u/BijYdkgTWcx4/th7fbdJLaS+tvtRAo8iqyFJWo8MP9Jw7Oevtz3J0GlHFgbW/aF19h4v3A2SPSyMEZT8lvJNnscDaKWwaOU9NVBOYgFTQN8SLkA1hwmmQSjXIymQAG4gidbruSFPwWp2S/QK4rekkNVJU+q7WLbhiqPztHnXTMYi56ANrPfspfbWtl..."
+}
+```
+
 All data server over our REST endpoints are sent to you immediately, but they are encrypted.
 The decryption key is the preimage that was used to generate the invoice we sent you. Your
 Lightning Client provides you with this preimage upon paying the invoice. 
@@ -1540,7 +1549,7 @@ Symbol | Bitfinex | Coinbase | Bitstamp | Kraken |
 
 <aside class="success">At this time, we only provide pricing data for Perpetual contracts. Historical Quartelry and Bi-Quarterly data are not available at this time. </aside>
 
-Symbol  | Kraken   | Bitmex |
+Symbol  | Krakenfut   | Bitmex |
 ------  | :------: | :-----: |
 `BTCUSD` |  Perpetual  | Perpetual|  
 `ETHUSD` |  Perpetual  | Perpetual     |
@@ -1549,6 +1558,7 @@ Symbol  | Kraken   | Bitmex |
 `XRPUSD` | Perpetual | 
 `XRPBTC` | Perpetual  | 
 
+<aside class="notice">Note for Historical API, you must use `kraken` for spot prices and `krakenfut` for futures prices.</aside>
 
 
 ## Prices
@@ -1599,6 +1609,57 @@ Method | HTTPS Request | Description
 get    |  GET /exchange/pair/year/period | Returns the pricing data for the specific `period` requested.
 
 
+# Discreet Log Contracts (DLC)
+
+## Overview 
+
+Our Discreet Log Contract service is in early beta. 
+
+To learn more details on Discreet Log Contracts, check out this series of articles. [Discreet Log Contracts](https://suredbits.com/discreet-log-contracts-part-1-what-is-a-discreet-log-contract/)
+
+A DLC signature will have the following signature format:
+
+`SHA256(moonOrCrash ++ exchange ++ pair ++ eventTime.getMillis)`
+
+Messages will be signed as either `MOON` or `CRASH`.  
+
+The message signed will use `MOON` if the price has gone *up* between 2:00 AM UTC and 2:00 AM UTC on the next day.  
+
+The message signed will use `CRASH` if the price has gone *down* between 2:0 AM UTC and 2:00 AM UTC on the next day. 
+
+Field | Return
+------ | ------
+`moon` or `crash` | `MOON`, `CRASH`
+`exchange` | binance, bitfinex, bitmex, coinbase, kraken, bitstamp, gemini, krakenfut
+`pair` | `btcusd`, `ethusd`, `btcusdt`, `bchbtc`, `eosbtc`, etc...
+`eventTime.getMillis` | `1570154400000`
+
+## Encrypted Payload
+> Encrypted payload sample 
+
+```json
+{"invoice":"lntb1660n1pwe09pnpp5zatsxahnzmc7wymve6w62wpc9a6v936rxap7ms9ylpqk57qmltksdzj2d6hyetyvf5hgueqg9gyjw3qxycnzd3exu6rqtf3v4jx2tf5xpsngttz8ymnwttyxccnvwp58yun2d3sxvxqrrsse7tx7rah6ugdwnm07gxtrdcdhd5qp7jzjgqex78vx7gldwffmn290s2eyzaucyvw04zth7gt7qrpc2n80keztadgtyxjj6jm3lsu7egpmc4q0x",
+"encryptedData":"clt1ohHs44zana9BD4oZEycZMezfM+4KE+sVga1zEyUwdLWav0pU33roy4qcyvcSppUKfYsRiKlc+8cUhBCwf0Quok3EmgTyaR6JC6C2oSvRFw=="
+}
+```
+
+## Endpoints 
+
+> Sample Rvalue data
+> https://test.api.suredbits.com/dlc/v0/bitfinex/btcusd/rvalue
+
+
+[http://test.api.suredbits.com/dlc/v0/exchange/tradingpair/Rvalue](http://test.api.suredbits.com/dlc/v0/exchange/tradingpair/Rvalue)
+
+> Sample LastSig data
+> https://test.api.suredbits.com/dlc/v0/bitfinex/btcusd/lastsig
+
+[http://test.api.suredbits.com/dlc/v0/exchange/tradingpair/LastSig](http://test.api.suredbits.com/dlc/v0/exchange/tradingpair/LastSig)
+
+
+
+
+
 # NFL Data API
 
 Our NFL API allows you to query data across `Games`, `Players`, `Team`, and `Stats`. 
@@ -1608,6 +1669,15 @@ Mainnet address: [https://api.suredbits.com/nfl/v0](https://api.suredbits.com/nf
 Testnet address: [https://test.api.suredbits.com/nfl/v0](https://test.api.suredbits.com/nfl/v0)
 
 ## Encrypted payloads
+
+> Encrypted payload sample
+
+```json
+{
+  "invoice": "lnbc1660n1pwevgm3pp5jeu5jhedpcfj2vqstcjmsdl2gjp3g20sf4zldq3nppu7scx5tatsdzj2d6hyetyvf5hgueqg9gyjw3q8qcnzdejxajn2tfkxccxxtf58qunwtfcvenxytfjxcurqvnpxs6rjdf4xuxqrrssfcn3puh8ysatexdv4j6ytknj6ghw5kfkjkzx9d2qylrl89d7exzrlsupcjulrxg64w9g5lcnfply9plyychdvk80af8gxuym46cjk2gqj47e6t",
+  "encryptedData": "9E8WYfox4eoWgDhWAIetfV9fJTPTpNEwlUkjWYpoeS3OGEFzQV3T6svje+seVh5FXbpjrh+q49hfO5bSo+9m0SUKLEQNJAa8Thblm+XIbcMSD3r895jmExWAjN1Ubtkw1OLhWO43Qw1tDsAeZIOyEGyrepunPMWlzfijt6wUSIlTJaebE2PzE1sjSYZMqC4SDRB369hswXOdwyi1/+nH1rOih7MD9+0rBrjg4egze6Gt3bpHqskjyTMBqbMUY9nMCPgeyvZADk86PwcqenLYu+LegqImlkgZLw4c8dmB3vB/pY+F2l5X2eTK15NQijIpSg=="
+}
+```
 
 All data server over our REST endpoints are sent to you immediately, but they are encrypted.
 The decryption key is the preimage that was used to generate the invoice we sent you. Your
