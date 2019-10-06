@@ -1615,7 +1615,9 @@ get    |  GET /exchange/pair/year/period | Returns the pricing data for the spec
 
 Our Discreet Log Contract service is in early beta. 
 
-To learn more details on Discreet Log Contracts, check out this series of articles. [Discreet Log Contracts](https://suredbits.com/discreet-log-contracts-part-1-what-is-a-discreet-log-contract/)
+To learn more details on Discreet Log Contracts, check out this series of articles. 
+
+[Discreet Log Contracts 101](https://suredbits.com/discreet-log-contracts-part-1-what-is-a-discreet-log-contract/)
 
 A DLC signature will have the following signature format:
 
@@ -1642,6 +1644,7 @@ Field | Return
 "encryptedData":"clt1ohHs44zana9BD4oZEycZMezfM+4KE+sVga1zEyUwdLWav0pU33roy4qcyvcSppUKfYsRiKlc+8cUhBCwf0Quok3EmgTyaR6JC6C2oSvRFw=="
 }
 ```
+All data server over our REST endpoints are sent to you immediately, but they are encrypted. The decryption key is the preimage that was used to generate the invoice we sent you. Your Lightning Client provides you with this preimage upon paying the invoice.
 
 ## Endpoints 
 
