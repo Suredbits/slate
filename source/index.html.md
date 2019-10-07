@@ -1619,6 +1619,8 @@ To learn more details on Discreet Log Contracts, check out this series of articl
 
 [Discreet Log Contracts 101](https://suredbits.com/discreet-log-contracts-part-1-what-is-a-discreet-log-contract/)
 
+For additional background information, check out the initial [proof of concept](https://blockstream.com/2019/04/19/en-transacting-bitcoin-based-p2p-derivatives/) Discreet Log Contract executed by [Crypto Garage](https://cryptogarage.co.jp/en/) and [Blockstream](https://blockstream.com/). 
+
 ## Format
 
 A DLC signature will have the following signature format:
