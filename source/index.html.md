@@ -1613,11 +1613,13 @@ get    |  GET /exchange/pair/year/period | Returns the pricing data for the spec
 
 ## Overview 
 
-Our Discreet Log Contract service is in early beta. 
+Our Discreet Log Contract service is in early beta.  It is available only on testnet at this time. 
 
 To learn more details on Discreet Log Contracts, check out this series of articles. 
 
 [Discreet Log Contracts 101](https://suredbits.com/discreet-log-contracts-part-1-what-is-a-discreet-log-contract/)
+
+## Format
 
 A DLC signature will have the following signature format:
 
@@ -1636,7 +1638,7 @@ Field | Return
 `pair` | `btcusd`, `ethusd`, `btcusdt`, `bchbtc`, `eosbtc`, etc...
 `eventTime.getMillis` | `1570154400000`
 
-## Encrypted Payload
+## Encrypted Payloads
 > Encrypted payload sample 
 
 ```json
@@ -1646,21 +1648,89 @@ Field | Return
 ```
 All data server over our REST endpoints are sent to you immediately, but they are encrypted. The decryption key is the preimage that was used to generate the invoice we sent you. Your Lightning Client provides you with this preimage upon paying the invoice.
 
+
+### Technical Details
+
+The payloads are encrypted with AES in CFB mode, with no padding to the plaintext. The initialization vector (IV) is prepended to the payload, and the resulting byte sequence is base64-encoded. When decrypting you decode the base64 string, take the first 16 bytes as your IV and the rest as the encrypted payload.
+
+
+### Spot Trading Pairs Supported 
+
+Symbol    | Binance  | Bitfinex  | Coinbase | Bitstamp | Gemini |  Kraken |
+-------   | :-----:  | :-------: | :------: | :------: | :-----: | :-----:
+`BTCUSDT` | &#10003; |           |         |         |         |
+`ETHBTC`  | &#10003; |  &#10003; | &#10003;| &#10003;| &#10003;| &#10003;
+`ETHUSDT` | &#10003; |           |         |         |         |
+`BTCUSD`  |          |  &#10003; | &#10003;| &#10003;| &#10003;| &#10003;
+`ETHUSD`  |          |  &#10003; | &#10003;| &#10003;| &#10003;| &#10003;
+`LTCUSD`  |          |  &#10003; | &#10003;| &#10003;| &#10003;| &#10003;    
+`LTCBTC`  | &#10003; |  &#10003; | &#10003;| &#10003;| &#10003;| &#10003;
+`LTCETH`  | &#10003; |           |         |         | &#10003;|
+`LTCUSDT` | &#10003; |           |         |         |         |
+`LTCBCH`  |          |           |         |         | &#10003;| 
+`BCHUSDT` | &#10003; |           |         |         |         | 
+`BCHUSD`  |          | &#10003;  | &#10003;| &#10003;| &#10003;| &#10003;
+`BCHBTC`  | &#10003; | &#10003;  | &#10003;| &#10003;| &#10003;| &#10003;
+`BCHETH`  |          |           |         |         | &#10003;|
+`XRPUSDT` | &#10003; |           |         |         |         |         
+`XRPBTC`  | &#10003; | &#10003;  | &#10003;| &#10003;|         | &#10003; 
+`XRPETH`  | &#10003; |           |         |         |         |
+`XRPUSD`  |          | &#10003;  | &#10003;| &#10003;|         | &#10003;       
+`EOSUSDT` | &#10003; |           |         |         |         | 
+`EOSUSD`  |          | &#10003;  | &#10003;|         |         | &#10003;
+`EOSBTC`  | &#10003; | &#10003;  | &#10003;|         |         | &#10003;
+`EOSETH`  | &#10003; | &#10003;  |         |         |         | &#10003;
+
+### Euro Trading Pairs Supported
+
+Symbol | Bitfinex | Coinbase | Bitstamp | Kraken |
+------ | :------: | :------: | :------: | :-----:
+`BTCEUR` | &#10003;| &#10003; | &#10003; | &#10003;|
+`ETHEUR` | &#10003; | &#10003; | &#10003; | &#10003; |
+`EOSEUR` | &#10003; | &#10003; |          | &#10003; |
+`LTCEUR` |        | &#10003; | &#10003; |  &#10003; |
+`BCHEUR` |       | &#10003; | &#10003; |  &#10003; |
+`XRPEUR` |       | &#10003; | &#10003; |  &#10003; |
+`EURUSD` |       |          | &#10003; |        |
+
+### Futures Trading Pairs Supported
+
+<aside class="success">At this time, we only provide pricing data for Perpetual contracts. Historical Quartelry and Bi-Quarterly data are not available at this time. </aside>
+
+Symbol  | Krakenfut   | Bitmex |
+------  | :------: | :-----: |
+`BTCUSD` |  Perpetual  | Perpetual|  
+`ETHUSD` |  Perpetual  | Perpetual     |
+`LTCUSD` | Perpetual   |        |
+`BCHUSD` | Perpetual   |        |
+`XRPUSD` | Perpetual | 
+`XRPBTC` | Perpetual  | 
+
+<aside class="notice">Note for Historical API, you must use `kraken` for spot prices and `krakenfut` for futures prices.</aside>
+
+
+
 ## Endpoints 
 
 > Sample Rvalue data
+
 > https://test.api.suredbits.com/dlc/v0/bitfinex/btcusd/rvalue
 
+```json
+{"21dbe52fd45945df1178f1a7757457704309713548c33f666e41c86de4a65854be"}
+```
 
 [http://test.api.suredbits.com/dlc/v0/exchange/tradingpair/Rvalue](http://test.api.suredbits.com/dlc/v0/exchange/tradingpair/Rvalue)
 
 > Sample LastSig data
+
 > https://test.api.suredbits.com/dlc/v0/bitfinex/btcusd/lastsig
 
+```json
+{"31a7b0d942838ec2a900a290eabef2be22a9a232a1b74fa376b433c5ef55ada18640dce4420922eb384e63f124b6a2cf534a2f7f6f37a3961aa98bc423d7d263}"
+```
+
 [http://test.api.suredbits.com/dlc/v0/exchange/tradingpair/LastSig](http://test.api.suredbits.com/dlc/v0/exchange/tradingpair/LastSig)
-
-
-
 
 
 # NFL Data API
