@@ -1640,23 +1640,9 @@ Field | Return
 `pair` | `btcusd`, `ethusd`, `btcusdt`, `bchbtc`, `eosbtc`, etc...
 `eventTime.getMillis` | `1570154400000`
 
-## Encrypted Payloads
-> Encrypted payload sample 
+## Trading Pairs Supported 
 
-```json
-{"invoice":"lntb1660n1pwe09pnpp5zatsxahnzmc7wymve6w62wpc9a6v936rxap7ms9ylpqk57qmltksdzj2d6hyetyvf5hgueqg9gyjw3qxycnzd3exu6rqtf3v4jx2tf5xpsngttz8ymnwttyxccnvwp58yun2d3sxvxqrrsse7tx7rah6ugdwnm07gxtrdcdhd5qp7jzjgqex78vx7gldwffmn290s2eyzaucyvw04zth7gt7qrpc2n80keztadgtyxjj6jm3lsu7egpmc4q0x",
-"encryptedData":"clt1ohHs44zana9BD4oZEycZMezfM+4KE+sVga1zEyUwdLWav0pU33roy4qcyvcSppUKfYsRiKlc+8cUhBCwf0Quok3EmgTyaR6JC6C2oSvRFw=="
-}
-```
-All data server over our REST endpoints are sent to you immediately, but they are encrypted. The decryption key is the preimage that was used to generate the invoice we sent you. Your Lightning Client provides you with this preimage upon paying the invoice.
-
-
-### Technical Details
-
-The payloads are encrypted with AES in CFB mode, with no padding to the plaintext. The initialization vector (IV) is prepended to the payload, and the resulting byte sequence is base64-encoded. When decrypting you decode the base64 string, take the first 16 bytes as your IV and the rest as the encrypted payload.
-
-
-### Spot Trading Pairs Supported 
+### Spot Trading Pairs
 
 Symbol    | Binance  | Bitfinex  | Coinbase | Bitstamp | Gemini |  Kraken |
 -------   | :-----:  | :-------: | :------: | :------: | :-----: | :-----:
@@ -1683,7 +1669,7 @@ Symbol    | Binance  | Bitfinex  | Coinbase | Bitstamp | Gemini |  Kraken |
 `EOSBTC`  | &#10003; | &#10003;  | &#10003;|         |         | &#10003;
 `EOSETH`  | &#10003; | &#10003;  |         |         |         | &#10003;
 
-### Euro Trading Pairs Supported
+### Euro Trading Pairs 
 
 Symbol | Bitfinex | Coinbase | Bitstamp | Kraken |
 ------ | :------: | :------: | :------: | :-----:
@@ -1695,7 +1681,7 @@ Symbol | Bitfinex | Coinbase | Bitstamp | Kraken |
 `XRPEUR` |       | &#10003; | &#10003; |  &#10003; |
 `EURUSD` |       |          | &#10003; |        |
 
-### Futures Trading Pairs Supported
+### Futures Trading Pairs 
 
 <aside class="success">At this time, we only provide pricing data for Perpetual contracts. Historical Quartelry and Bi-Quarterly data are not available at this time. </aside>
 
@@ -1710,6 +1696,21 @@ Symbol  | Krakenfut   | Bitmex |
 
 <aside class="notice">Note for Historical API, you must use `kraken` for spot prices and `krakenfut` for futures prices.</aside>
 
+
+## Encrypted Payloads
+> Encrypted payload sample 
+
+```json
+{"invoice":"lntb1660n1pwe09pnpp5zatsxahnzmc7wymve6w62wpc9a6v936rxap7ms9ylpqk57qmltksdzj2d6hyetyvf5hgueqg9gyjw3qxycnzd3exu6rqtf3v4jx2tf5xpsngttz8ymnwttyxccnvwp58yun2d3sxvxqrrsse7tx7rah6ugdwnm07gxtrdcdhd5qp7jzjgqex78vx7gldwffmn290s2eyzaucyvw04zth7gt7qrpc2n80keztadgtyxjj6jm3lsu7egpmc4q0x",
+"encryptedData":"clt1ohHs44zana9BD4oZEycZMezfM+4KE+sVga1zEyUwdLWav0pU33roy4qcyvcSppUKfYsRiKlc+8cUhBCwf0Quok3EmgTyaR6JC6C2oSvRFw=="
+}
+```
+All data server over our REST endpoints are sent to you immediately, but they are encrypted. The decryption key is the preimage that was used to generate the invoice we sent you. Your Lightning Client provides you with this preimage upon paying the invoice.
+
+
+### Technical Details
+
+The payloads are encrypted with AES in CFB mode, with no padding to the plaintext. The initialization vector (IV) is prepended to the payload, and the resulting byte sequence is base64-encoded. When decrypting you decode the base64 string, take the first 16 bytes as your IV and the rest as the encrypted payload.
 
 
 ## Endpoints 
