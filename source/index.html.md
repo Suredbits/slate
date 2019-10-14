@@ -1613,13 +1613,15 @@ get    |  GET /exchange/pair/year/period | Returns the pricing data for the spec
 
 ## Overview 
 
-Our Discreet Log Contract service is in early beta.  It is available only on testnet at this time. 
+Our Discreet Log Contract service is in early beta.  For now, it is available only on testnet. 
 
-To learn more details on Discreet Log Contracts, check out this series of articles. 
+For more details on what Discreet Log Contracts are and how they work, check out this series of articles. 
 
 [Discreet Log Contracts 101](https://suredbits.com/discreet-log-contracts-part-1-what-is-a-discreet-log-contract/)
 
 For additional background information, check out the initial [proof of concept](https://blockstream.com/2019/04/19/en-transacting-bitcoin-based-p2p-derivatives/) Discreet Log Contract executed by [Crypto Garage](https://cryptogarage.co.jp/en/) and [Blockstream](https://blockstream.com/). 
+
+Here is the original whitepaper for [Discreet Log Contracts](https://dci.mit.edu/)
 
 ## Format
 
