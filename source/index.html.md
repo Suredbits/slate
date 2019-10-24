@@ -1609,11 +1609,15 @@ Method | HTTPS Request | Description
 get    |  GET /exchange/pair/year/period | Returns the pricing data for the specific `period` requested.
 
 
-# Discreet Log Contracts (DLC)
+# Discreet Log Contracts (DLC) Oracles
 
 ## Overview 
 
 Our Discreet Log Contract service is in early beta.  For now, it is available only on testnet. 
+
+A DLC Oracle provides access to Schnorr Digital Signatures (link) of events where all outcomes are known ahead of time. 
+We follow the BIP-Schnorr (link) specification of 64-byte signatures where the first 32 bytes are the R value's x-coordinate and the last 32 bytes are the Schnorr signature. 
+In addition to these signatures, DLC oracles must also make available the signature R values for future events since this value is required for setting up a DLC. An R value is simply a 33-byte compressed public key (link).
 
 For more details on what Discreet Log Contracts are and how they work, check out this series of articles. 
 
@@ -1621,11 +1625,11 @@ For more details on what Discreet Log Contracts are and how they work, check out
 
 For additional background information, check out the initial [proof of concept](https://blockstream.com/2019/04/19/en-transacting-bitcoin-based-p2p-derivatives/) Discreet Log Contract executed by [Crypto Garage](https://cryptogarage.co.jp/en/) and [Blockstream](https://blockstream.com/). 
 
-Here is the original whitepaper for [Discreet Log Contracts](https://dci.mit.edu/)
+Here is the original whitepaper for [Discreet Log Contracts](https://adiabat.github.io/dlc.pdf)
 
-## Format
+## Oracle Specification
 
-A DLC signature will have the following signature format:
+Oracle signatures will be Schnorr Signatures of the following hash:
 
 `SHA256(moonOrCrash ++ exchange ++ pair ++ eventTime.getMillis)`
 
@@ -1633,7 +1637,7 @@ Messages will be signed as either `MOON` or `CRASH`.
 
 The message signed will use `MOON` if the price has gone *up* between 2:00 AM UTC and 2:00 AM UTC on the next day.  
 
-The message signed will use `CRASH` if the price has gone *down* between 2:0 AM UTC and 2:00 AM UTC on the next day. 
+The message signed will use `CRASH` if the price has gone *down* between 2:00 AM UTC and 2:00 AM UTC on the next day. 
 
 Field | Return
 ------ | ------
@@ -1641,6 +1645,46 @@ Field | Return
 `exchange` | binance, bitfinex, bitmex, coinbase, kraken, bitstamp, gemini, krakenfut
 `pair` | `btcusd`, `ethusd`, `btcusdt`, `bchbtc`, `eosbtc`, etc...
 `eventTime.getMillis` | `1570154400000`
+
+
+## Endpoints 
+
+> Sample Rvalue data
+
+> https://test.api.suredbits.com/dlc/v0/bitfinex/btcusd/rvalue
+
+```json
+{"invoice":"lntb1660n1pwmr363pp57f4yttnxgdj97ps02vmrr8wgzyax5nt9hrlpdjr6prvpz8uj0fvsdzj2d6hyetyvf5hgueqg9gyjw3qxc6kgvmp8p3kztf3xvcnjtf58ymrwttzxanrztfnx5cx2dp5xsuryvejvcxqrrssgrut7k2g3sd82kfv9p4q5uxr5zum8uhy73j8x0vq4q9kyrm09mnx5lrmsjz2hf9e6l8sxzc9l2ks6xmh5p87crne0zhkdl6zrwt0lhspnf68ja",
+"encryptedData":"bc5sKOGuYORxDlpFlcHoMba7wNZ8WhCegRtc34U9nihWEfgHmyHoLq1dbxsT3HcR6xmPeO2AX139HOAWcieU52XnKVitOQZS6bIm+QwVY5R1qg=="}
+```
+
+[https://test.api.suredbits.com/dlc/v0/exchange/tradingpair/Rvalue](http://test.api.suredbits.com/dlc/v0/exchange/tradingpair/Rvalue)
+
+> Sample LastSig data
+
+> https://test.api.suredbits.com/dlc/v0/bitfinex/btcusd/lastsig
+
+```json
+{"invoice":"lntb1660n1pwmrjz4pp5p0xgtysdgjatd29mspagq9gaqs9ep3xuf564eryyjadu2vaq6l8sdzj2d6hyetyvf5hgueqg9gyjw3qvg6k2ctzvserztfcvserqtf5vsckztfcxejxvtfkve3xzwp3vgmx2dryxsxqrrssgw9qs6l03k72ewksevy62tphvuqtd3wm6kkwcanuksrv7tk5d40j93d22ywyfnudnpkduh36cws5xf4m5ff4mp3lv45qxnqq75r3f2spcul8q3",
+"encryptedData":"1IODFRJ/UpPq81nPoSPnYvRozKy9g4se4Kl3jPd4hIj28fIJMmQ6nbJqXp7OzzuroX/UcLC/DelaxcRaXKUw7DCdbAaprucMvdEyc4mC8C6+ZHPf1DsF/FvvfhPw25iXWS7LlmcoPd2wijL6Xkz78/7JVRC4r7eaJBThHwkzp485LHT2gngEWE3gr8wdDZ9J"}
+```
+
+[https://test.api.suredbits.com/dlc/v0/exchange/tradingpair/LastSig](http://test.api.suredbits.com/dlc/v0/exchange/tradingpair/LastSig)
+
+## Encrypted Payloads
+> Encrypted payload sample 
+
+```json
+{"invoice":"lntb1660n1pwe09pnpp5zatsxahnzmc7wymve6w62wpc9a6v936rxap7ms9ylpqk57qmltksdzj2d6hyetyvf5hgueqg9gyjw3qxycnzd3exu6rqtf3v4jx2tf5xpsngttz8ymnwttyxccnvwp58yun2d3sxvxqrrsse7tx7rah6ugdwnm07gxtrdcdhd5qp7jzjgqex78vx7gldwffmn290s2eyzaucyvw04zth7gt7qrpc2n80keztadgtyxjj6jm3lsu7egpmc4q0x",
+"encryptedData":"clt1ohHs44zana9BD4oZEycZMezfM+4KE+sVga1zEyUwdLWav0pU33roy4qcyvcSppUKfYsRiKlc+8cUhBCwf0Quok3EmgTyaR6JC6C2oSvRFw=="
+}
+```
+Values returned are `json` containing an encrypted payload. The decryption key is the preimage that was used to generate the invoice we sent you. Your Lightning Client provides you with this preimage upon paying the invoice.
+
+
+### Technical Details
+
+The payloads are encrypted with AES in CFB mode, with no padding to the plaintext. The initialization vector (IV) is prepended to the payload, and the resulting byte sequence is base64-encoded. When decrypting you decode the base64 string, take the first 16 bytes as your IV and the rest as the encrypted payload.
 
 ## Trading Pairs Supported 
 
@@ -1697,45 +1741,6 @@ Symbol  | Krakenfut   | Bitmex |
 `XRPBTC` | Perpetual  | 
 
 <aside class="notice">Note for Historical API, you must use `kraken` for spot prices and `krakenfut` for futures prices.</aside>
-
-
-## Encrypted Payloads
-> Encrypted payload sample 
-
-```json
-{"invoice":"lntb1660n1pwe09pnpp5zatsxahnzmc7wymve6w62wpc9a6v936rxap7ms9ylpqk57qmltksdzj2d6hyetyvf5hgueqg9gyjw3qxycnzd3exu6rqtf3v4jx2tf5xpsngttz8ymnwttyxccnvwp58yun2d3sxvxqrrsse7tx7rah6ugdwnm07gxtrdcdhd5qp7jzjgqex78vx7gldwffmn290s2eyzaucyvw04zth7gt7qrpc2n80keztadgtyxjj6jm3lsu7egpmc4q0x",
-"encryptedData":"clt1ohHs44zana9BD4oZEycZMezfM+4KE+sVga1zEyUwdLWav0pU33roy4qcyvcSppUKfYsRiKlc+8cUhBCwf0Quok3EmgTyaR6JC6C2oSvRFw=="
-}
-```
-All data server over our REST endpoints are sent to you immediately, but they are encrypted. The decryption key is the preimage that was used to generate the invoice we sent you. Your Lightning Client provides you with this preimage upon paying the invoice.
-
-
-### Technical Details
-
-The payloads are encrypted with AES in CFB mode, with no padding to the plaintext. The initialization vector (IV) is prepended to the payload, and the resulting byte sequence is base64-encoded. When decrypting you decode the base64 string, take the first 16 bytes as your IV and the rest as the encrypted payload.
-
-
-## Endpoints 
-
-> Sample Rvalue data
-
-> https://test.api.suredbits.com/dlc/v0/bitfinex/btcusd/rvalue
-
-```json
-{"21dbe52fd45945df1178f1a7757457704309713548c33f666e41c86de4a65854be"}
-```
-
-[http://test.api.suredbits.com/dlc/v0/exchange/tradingpair/Rvalue](http://test.api.suredbits.com/dlc/v0/exchange/tradingpair/Rvalue)
-
-> Sample LastSig data
-
-> https://test.api.suredbits.com/dlc/v0/bitfinex/btcusd/lastsig
-
-```json
-{"31a7b0d942838ec2a900a290eabef2be22a9a232a1b74fa376b433c5ef55ada18640dce4420922eb384e63f124b6a2cf534a2f7f6f37a3961aa98bc423d7d263}"
-```
-
-[http://test.api.suredbits.com/dlc/v0/exchange/tradingpair/LastSig](http://test.api.suredbits.com/dlc/v0/exchange/tradingpair/LastSig)
 
 
 # NFL Data API
