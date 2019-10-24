@@ -1609,15 +1609,15 @@ Method | HTTPS Request | Description
 get    |  GET /exchange/pair/year/period | Returns the pricing data for the specific `period` requested.
 
 
-# Discreet Log Contracts (DLC) Oracles
+# Discreet Log Contract (DLC) Oracles
 
 ## Overview 
 
 Our Discreet Log Contract service is in early beta.  For now, it is available only on testnet. 
 
-A DLC Oracle provides access to Schnorr Digital Signatures (link) of events where all outcomes are known ahead of time. 
-We follow the BIP-Schnorr (link) specification of 64-byte signatures where the first 32 bytes are the R value's x-coordinate and the last 32 bytes are the Schnorr signature. 
-In addition to these signatures, DLC oracles must also make available the signature R values for future events since this value is required for setting up a DLC. An R value is simply a 33-byte compressed public key (link).
+A DLC Oracle provides access to [Schnorr Digital Signatures](https://en.wikipedia.org/wiki/Schnorr_signature) of events where all outcomes are known ahead of time. 
+We follow the [BIP-Schnorr](https://github.com/sipa/bips/blob/bip-schnorr/bip-schnorr.mediawiki) specification of 64-byte signatures where the first 32 bytes are the R value's x-coordinate and the last 32 bytes are the Schnorr signature. 
+In addition to these signatures, DLC oracles must also make available the signature R values for future events since this value is required for setting up a DLC. An R value is simply a 33-byte [compressed public key](https://bitcoin.stackexchange.com/questions/3059/what-is-a-compressed-bitcoin-key).
 
 For more details on what Discreet Log Contracts are and how they work, check out this series of articles. 
 
@@ -1633,13 +1633,13 @@ Oracle signatures will be Schnorr Signatures of the following hash:
 
 `SHA256(moonOrCrash ++ exchange ++ pair ++ eventTime.getMillis)`
 
-Messages will be signed as either `MOON` or `CRASH`.  
+Where `moonOrCrash` is either the all-caps string `MOON` or `CRASH`. 
 
 The message signed will use `MOON` if the price has gone *up* between 2:00 AM UTC and 2:00 AM UTC on the next day.  
 
 The message signed will use `CRASH` if the price has gone *down* between 2:00 AM UTC and 2:00 AM UTC on the next day. 
 
-Field | Return
+Field | Values
 ------ | ------
 `moon` or `crash` | `MOON`, `CRASH`
 `exchange` | binance, bitfinex, bitmex, coinbase, kraken, bitstamp, gemini, krakenfut
@@ -1654,8 +1654,10 @@ Field | Return
 > https://test.api.suredbits.com/dlc/v0/bitfinex/btcusd/rvalue
 
 ```json
-{"invoice":"lntb1660n1pwmr363pp57f4yttnxgdj97ps02vmrr8wgzyax5nt9hrlpdjr6prvpz8uj0fvsdzj2d6hyetyvf5hgueqg9gyjw3qxc6kgvmp8p3kztf3xvcnjtf58ymrwttzxanrztfnx5cx2dp5xsuryvejvcxqrrssgrut7k2g3sd82kfv9p4q5uxr5zum8uhy73j8x0vq4q9kyrm09mnx5lrmsjz2hf9e6l8sxzc9l2ks6xmh5p87crne0zhkdl6zrwt0lhspnf68ja",
-"encryptedData":"bc5sKOGuYORxDlpFlcHoMba7wNZ8WhCegRtc34U9nihWEfgHmyHoLq1dbxsT3HcR6xmPeO2AX139HOAWcieU52XnKVitOQZS6bIm+QwVY5R1qg=="}
+{
+"invoice":"lntb1660n1pwmr363pp57f4yttnxgdj97ps02vmrr8wgzyax5nt9hrlpdjr6prvpz8uj0fvsdzj2d6hyetyvf5hgueqg9gyjw3qxc6kgvmp8p3kztf3xvcnjtf58ymrwttzxanrztfnx5cx2dp5xsuryvejvcxqrrssgrut7k2g3sd82kfv9p4q5uxr5zum8uhy73j8x0vq4q9kyrm09mnx5lrmsjz2hf9e6l8sxzc9l2ks6xmh5p87crne0zhkdl6zrwt0lhspnf68ja",
+"encryptedData":"bc5sKOGuYORxDlpFlcHoMba7wNZ8WhCegRtc34U9nihWEfgHmyHoLq1dbxsT3HcR6xmPeO2AX139HOAWcieU52XnKVitOQZS6bIm+QwVY5R1qg=="
+}
 ```
 
 [https://test.api.suredbits.com/dlc/v0/exchange/tradingpair/Rvalue](http://test.api.suredbits.com/dlc/v0/exchange/tradingpair/Rvalue)
@@ -1665,8 +1667,10 @@ Field | Return
 > https://test.api.suredbits.com/dlc/v0/bitfinex/btcusd/lastsig
 
 ```json
-{"invoice":"lntb1660n1pwmrjz4pp5p0xgtysdgjatd29mspagq9gaqs9ep3xuf564eryyjadu2vaq6l8sdzj2d6hyetyvf5hgueqg9gyjw3qvg6k2ctzvserztfcvserqtf5vsckztfcxejxvtfkve3xzwp3vgmx2dryxsxqrrssgw9qs6l03k72ewksevy62tphvuqtd3wm6kkwcanuksrv7tk5d40j93d22ywyfnudnpkduh36cws5xf4m5ff4mp3lv45qxnqq75r3f2spcul8q3",
-"encryptedData":"1IODFRJ/UpPq81nPoSPnYvRozKy9g4se4Kl3jPd4hIj28fIJMmQ6nbJqXp7OzzuroX/UcLC/DelaxcRaXKUw7DCdbAaprucMvdEyc4mC8C6+ZHPf1DsF/FvvfhPw25iXWS7LlmcoPd2wijL6Xkz78/7JVRC4r7eaJBThHwkzp485LHT2gngEWE3gr8wdDZ9J"}
+{
+"invoice":"lntb1660n1pwmrjz4pp5p0xgtysdgjatd29mspagq9gaqs9ep3xuf564eryyjadu2vaq6l8sdzj2d6hyetyvf5hgueqg9gyjw3qvg6k2ctzvserztfcvserqtf5vsckztfcxejxvtfkve3xzwp3vgmx2dryxsxqrrssgw9qs6l03k72ewksevy62tphvuqtd3wm6kkwcanuksrv7tk5d40j93d22ywyfnudnpkduh36cws5xf4m5ff4mp3lv45qxnqq75r3f2spcul8q3",
+"encryptedData":"1IODFRJ/UpPq81nPoSPnYvRozKy9g4se4Kl3jPd4hIj28fIJMmQ6nbJqXp7OzzuroX/UcLC/DelaxcRaXKUw7DCdbAaprucMvdEyc4mC8C6+ZHPf1DsF/FvvfhPw25iXWS7LlmcoPd2wijL6Xkz78/7JVRC4r7eaJBThHwkzp485LHT2gngEWE3gr8wdDZ9J"
+}
 ```
 
 [https://test.api.suredbits.com/dlc/v0/exchange/tradingpair/LastSig](http://test.api.suredbits.com/dlc/v0/exchange/tradingpair/LastSig)
