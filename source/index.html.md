@@ -2039,6 +2039,18 @@ Method   | HTTPS Request | Description
  ------- | --------- | -----------
  get     | GET /stats/statType/year/week/seasonPhase/lastName/firstName | Returns statistics for a player by satistic type for specific year, week, and season by player name
 
+Our NFL API allows you to query data across `Games`, `Players`, `Team`, and `Stats`. 
+
+# NBA Data API
+
+Our NBA API allows you to query data across `Games`, `Players`, `Team`, and `Stats`. 
+
+Mainnet address: [https://api.suredbits.com/nba/v0](https://api.suredbits.com/nba/v0)
+
+Testnet address: [https://test.api.suredbits.com/nba/v0](https://test.api.suredbits.com/nba/v0)
+
+
+
 # NFL Data Websocket (Deprecated)
 
 ## NFL Websocket Endpoints
