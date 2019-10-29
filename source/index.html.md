@@ -1650,7 +1650,7 @@ Field | Values
 
 ## Endpoints 
 
-There are two endpoints for our DLC service `Rvalue` and `LastSig`. 
+### Rvalue
 
 > Sample Rvalue data
 
@@ -1663,8 +1663,14 @@ There are two endpoints for our DLC service `Rvalue` and `LastSig`.
 }
 ```
 
-[https://test.api.suredbits.com/dlc/v0/exchange/tradingpair/Rvalue](http://test.api.suredbits.com/dlc/v0/exchange/tradingpair/Rvalue)
+Testnet Address: [https://test.api.suredbits.com/dlc/v0](http://test.api.suredbits.com/dlc/v0/exchange/tradingpair/Rvalue)
 
+Method | HTTPS Request | Description
+ ------- | --------- | ------------
+get      | GET /exchange/tradingpair/rvalue | Returns a compressed public key used for signing the next event for that exchange and trading pair.
+
+
+### LastSig
 > Sample LastSig data
 
 > https://test.api.suredbits.com/dlc/v0/bitfinex/btcusd/lastsig
@@ -1676,13 +1682,12 @@ There are two endpoints for our DLC service `Rvalue` and `LastSig`.
 }
 ```
 
-[https://test.api.suredbits.com/dlc/v0/exchange/tradingpair/LastSig](http://test.api.suredbits.com/dlc/v0/exchange/tradingpair/LastSig)
+Testnet Address: [https://test.api.suredbits.com/dlc/v0](http://test.api.suredbits.com/dlc/v0/exchange/tradingpair/LastSig)
 
 
 Method | HTTPS Request | Description
  ------- | --------- | ------------
-get      | GET /dlc/v0/exchange/tradingpair/rvalue | Returns a compressed public key used for signing the next event for that exchange and trading pair.
-get      | GET /dlc/v0/exchange/tradingpair/lastsig | Returns a signature of the last event for that exchange and trading pair.
+get      | GET /exchange/tradingpair/lastsig | Returns a signature of the last event for that exchange and trading pair.
 
 
 ## Encrypted Payloads
