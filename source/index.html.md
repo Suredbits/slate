@@ -2049,6 +2049,33 @@ Mainnet address: [https://api.suredbits.com/nba/v0](https://api.suredbits.com/nb
 
 Testnet address: [https://test.api.suredbits.com/nba/v0](https://test.api.suredbits.com/nba/v0)
 
+## Encrypted payloads
+
+All data server over our REST endpoints are sent to you immediately, but they are encrypted.
+The decryption key is the preimage that was used to generate the invoice we sent you. Your
+Lightning Client provides you with this preimage upon paying the invoice. 
+
+### Technical details
+
+The payloads are encrypted with AES in CFB mode, with no padding to the plaintext. The 
+initialization vector (IV) is prepended to the payload, and the resulting byte sequence
+is base64-encoded. When decrypting you decode the base64 string, take the first 16 bytes
+as your IV and the rest as the encrypted payload. 
+
+## Data Types 
+
+Type | Example
+----- | -------
+`seasonPhase` | `Preseason`, `Regular`, `Postseason`
+`teamId` | `CHI`, `LAL`, `ATL`, 
+`realTime` | `true`
+`firstName` | `Kevin`, `Lebron`, `Zion`, etc. 
+`lastName` | `Durant` `James`, `Williamson`, etc. 
+`retrieve` | `roster`, `schedule` 
+`year` | `2018`, `2015`, `2011`, etc.
+`statType` | `passing`, `rushing`, `receiving`, `defense`
+`gameId` |  `2016101604`
+`playerId` | `00-0027973`
 
 
 # NFL Data Websocket (Deprecated)
