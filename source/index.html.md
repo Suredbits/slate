@@ -1617,6 +1617,7 @@ Our Discreet Log Contract service is in early beta.  For now, it is available on
 
 A DLC Oracle provides access to [Schnorr Digital Signatures](https://en.wikipedia.org/wiki/Schnorr_signature) of events where all outcomes are known ahead of time. 
 We follow the [BIP-Schnorr](https://github.com/sipa/bips/blob/bip-schnorr/bip-schnorr.mediawiki) specification of 64-byte signatures where the first 32 bytes are the R value's x-coordinate and the last 32 bytes are the Schnorr signature. 
+
 In addition to these signatures, DLC oracles must also make available the signature R values for future events since this value is required for setting up a DLC. An R value is simply a 33-byte [compressed public key](https://bitcoin.stackexchange.com/questions/3059/what-is-a-compressed-bitcoin-key).
 
 For more details on what Discreet Log Contracts are and how they work, check out this series of articles. 
@@ -1649,6 +1650,8 @@ Field | Values
 
 ## Endpoints 
 
+There are two endpoints for our DLC service" `Rvalue` and `LastSig`. 
+
 > Sample Rvalue data
 
 > https://test.api.suredbits.com/dlc/v0/bitfinex/btcusd/rvalue
@@ -1674,6 +1677,13 @@ Field | Values
 ```
 
 [https://test.api.suredbits.com/dlc/v0/exchange/tradingpair/LastSig](http://test.api.suredbits.com/dlc/v0/exchange/tradingpair/LastSig)
+
+
+Method | HTTPS Request | Description
+ ------- | --------- | ------------
+get      | dlc/v0/bitfinex/btcusd/rvalue | Returns a compressed public key used for signing the next event
+get      | dlc/v0/bitfinex/btcusd/lastsig | Returns a signature of the last event 
+
 
 ## Encrypted Payloads
 > Encrypted payload sample 
