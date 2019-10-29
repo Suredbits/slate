@@ -1681,8 +1681,8 @@ There are two endpoints for our DLC service" `Rvalue` and `LastSig`.
 
 Method | HTTPS Request | Description
  ------- | --------- | ------------
-get      | dlc/v0/bitfinex/btcusd/rvalue | Returns a compressed public key used for signing the next event
-get      | dlc/v0/bitfinex/btcusd/lastsig | Returns a signature of the last event 
+get      | dlc/v0/exchange/tradingpair/rvalue | Returns a compressed public key used for signing the next event
+get      | dlc/v0/exchange/tradingpair/lastsig | Returns a signature of the last event 
 
 
 ## Encrypted Payloads
