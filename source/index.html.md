@@ -1650,7 +1650,7 @@ Field | Values
 
 ## Endpoints 
 
-There are two endpoints for our DLC service" `Rvalue` and `LastSig`. 
+There are two endpoints for our DLC service `Rvalue` and `LastSig`. 
 
 > Sample Rvalue data
 
@@ -1681,8 +1681,8 @@ There are two endpoints for our DLC service" `Rvalue` and `LastSig`.
 
 Method | HTTPS Request | Description
  ------- | --------- | ------------
-get      | dlc/v0/exchange/tradingpair/rvalue | Returns a compressed public key used for signing the next event
-get      | dlc/v0/exchange/tradingpair/lastsig | Returns a signature of the last event 
+get      | GET /dlc/v0/exchange/tradingpair/rvalue | Returns a compressed public key used for signing the next event for that exchange and trading pair.
+get      | GET /dlc/v0/exchange/tradingpair/lastsig | Returns a signature of the last event for that exchange and trading pair.
 
 
 ## Encrypted Payloads
