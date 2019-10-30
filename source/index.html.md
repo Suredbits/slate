@@ -2066,16 +2066,51 @@ as your IV and the rest as the encrypted payload.
 
 Type | Example
 ----- | -------
-`seasonPhase` | `Preseason`, `Regular`, `Postseason`
+`season` | `2016`, `2017`, `2018`, etc. 
 `teamId` | `CHI`, `LAL`, `ATL`, 
 `realTime` | `true`
 `firstName` | `Kevin`, `Lebron`, `Zion`, etc. 
 `lastName` | `Durant` `James`, `Williamson`, etc. 
 `retrieve` | `roster`, `schedule` 
 `year` | `2018`, `2015`, `2011`, etc.
-`statType` | `passing`, `rushing`, `receiving`, `defense`
+`month` | `2`, `6`, `10`, etc. 
+`day` | `3`, `14`, `25`, etc. 
 `gameId` |  `2016101604`
 `playerId` | `00-0027973`
+
+## Info
+
+Mainnet address: [https://api.suredbits.com/nba/v0/info](https://api.suredbits.com/nba/v0/info)
+Testnet address: [https://test.api.suredbits.com/nba/v0/info](https://test.api.suredbits.com/nba/v0/info)
+
+Method | HTTPS Request | Description
+ ------- | --------- | ------------
+ get     | GET /info | Confirms connection and gives server status
+
+## Games
+
+Mainnet address: [https://api.suredbits.com/nba/v0/games](https://api.suredbits.com/nba/v0/games)
+Testnet address: [https://test.api.suredbits.com/nba/v0/games](https://test.api.suredbits.com/nba/v0/games)
+
+Method | HTTPS Request | Description
+ ------- | --------- | ------------
+ get     |           | 
+
+## Players
+
+Mainnet address: [https://api.suredbits.com/nba/v0/players](https://api.suredbits.com/nba/v0/players)
+Testnet address: [https://test.api.suredbits.com/nba/v0/players](https://test.api.suredbits.com/nba/v0/players)
+
+## Team
+
+Mainnet address: [https://api.suredbits.com/nba/v0/team](https://api.suredbits.com/nba/v0/team)
+Testnet address: [https://test.api.suredbits.com/nba/v0/team](https://test.api.suredbits.com/nba/v0/team)
+
+## Stats
+
+Mainnet address: [https://api.suredbits.com/nba/v0/stats](https://api.suredbits.com/nba/v0/stats)
+Testnet address: [https://test.api.suredbits.com/nba/v0/stats](https://test.api.suredbits.com/nba/v0/stats)
+
 
 
 # NFL Data Websocket (Deprecated)
@@ -2734,7 +2769,7 @@ Field | Type | Example
 `firstName`  | String | Drew
 `lastName` | String | Brees
 
-# NBA Data
+# NBA Data (Deprecated)
 
 ## NBA Websocket Endpoints
 
