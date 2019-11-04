@@ -2091,24 +2091,40 @@ Testnet address: [https://test.api.suredbits.com/nba/v0/games](https://test.api.
 
 Method | HTTPS Request | Description
  ------- | --------- | ------------
- get     |           | 
+ get     |  GET /year/month/day | Returns data for games on that scheduled for that date. 
+ get     |  GET /year/month/day/teamId | Returns data for games played by a specific team on that date.  
 
 ## Players
 
 Mainnet address: [https://api.suredbits.com/nba/v0/players](https://api.suredbits.com/nba/v0/players)
 Testnet address: [https://test.api.suredbits.com/nba/v0/players](https://test.api.suredbits.com/nba/v0/players)
 
+Method | HTTPS Request | Description
+ ------- | --------- | ------------
+get      | GET /firstName/lastName | Returns biographical information for a specific player. 
+
+
 ## Team
 
 Mainnet address: [https://api.suredbits.com/nba/v0/team](https://api.suredbits.com/nba/v0/team)
 Testnet address: [https://test.api.suredbits.com/nba/v0/team](https://test.api.suredbits.com/nba/v0/team)
+
+Method | HTTPS Request | Description
+ ------- | --------- | ------------
+get      | GET teamId/roster | Returns data for a specific team's roster for current year.
+get      | GET teamId/schedule | Returns data for a specific team's schedule for current year. 
+get      | GET teamID/roster/season | Returns data for a specific team's roster for specific year. 
+get      | GET teamID/schedule/season | Returns data for a specific team's schedule for a specific year. 
 
 ## Stats
 
 Mainnet address: [https://api.suredbits.com/nba/v0/stats](https://api.suredbits.com/nba/v0/stats)
 Testnet address: [https://test.api.suredbits.com/nba/v0/stats](https://test.api.suredbits.com/nba/v0/stats)
 
-
+Method | HTTPS Request | Description
+ ------- | --------- | ------------
+ get     | GET gameId/playerId | Returns data about individual player by `gameId` and `playerId`.
+ get     | GET year/month/day/firstName/lastName | Returns data by individual player by `firstName` and `lastName`.
 
 # NFL Data Websocket (Deprecated)
 
