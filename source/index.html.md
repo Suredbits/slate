@@ -2078,6 +2078,7 @@ Type | Example
 ## Info
 
 Mainnet address: [https://api.suredbits.com/nba/v0/info](https://api.suredbits.com/nba/v0/info)
+
 Testnet address: [https://test.api.suredbits.com/nba/v0/info](https://test.api.suredbits.com/nba/v0/info)
 
 Method | HTTPS Request | Description
@@ -2087,6 +2088,7 @@ Method | HTTPS Request | Description
 ## Games
 
 Mainnet address: [https://api.suredbits.com/nba/v0/games](https://api.suredbits.com/nba/v0/games)
+
 Testnet address: [https://test.api.suredbits.com/nba/v0/games](https://test.api.suredbits.com/nba/v0/games)
 
 Method | HTTPS Request | Description
@@ -2097,6 +2099,7 @@ Method | HTTPS Request | Description
 ## Players
 
 Mainnet address: [https://api.suredbits.com/nba/v0/players](https://api.suredbits.com/nba/v0/players)
+
 Testnet address: [https://test.api.suredbits.com/nba/v0/players](https://test.api.suredbits.com/nba/v0/players)
 
 Method | HTTPS Request | Description
@@ -2107,6 +2110,7 @@ get      | GET /firstName/lastName | Returns biographical information for a spec
 ## Team
 
 Mainnet address: [https://api.suredbits.com/nba/v0/team](https://api.suredbits.com/nba/v0/team)
+
 Testnet address: [https://test.api.suredbits.com/nba/v0/team](https://test.api.suredbits.com/nba/v0/team)
 
 Method | HTTPS Request | Description
@@ -2116,9 +2120,28 @@ get      | GET teamId/schedule | Returns data for a specific team's schedule for
 get      | GET teamID/roster/season | Returns data for a specific team's roster for specific year. 
 get      | GET teamID/schedule/season | Returns data for a specific team's schedule for a specific year. 
 
+Team Id	| City & Name | TeamID | City & Name
+-------- | ----------- | ------ | ---------
+ARI	| Arizona Cardinals	| LA   | Los Angeles Rams
+ATL	| Atlanta Falcons	| MIA  | Miami Dolphins
+BAL	| Baltimore Ravens	| MIN | Minnesota Vikings
+BUF	| Buffalo Bills	NE	| NE  | New England Patriots
+CAR	| Carolina Panthers	| NO | New Orleans Saints
+CHI	| Chicago Bears	NYG	| NYG | New York Giants
+CIN	| Cincinnati Bengals	| NYJ	| New York Jets
+CLE	| Cleveland Browns	| OAK	| Oakland Raiders
+DAL	| Dallas Cowboys	| PHI	| Philadelphia Eagles
+DEN	| Denver Broncos	| PIT	| Pittsburgh Steelers
+DET	| Detroit Lions	SD	| SD   | San Diego Chargers
+GB	| Green Bay Packers	| SEA	| Seattle Seahawks
+HOU	| Houston Texans	| SF	| San Francisco 49ers
+IND	| Indianpolis Colts	| TB	| Tampa Bay Buccaneers
+JAC	| Jacksonville Jaguars	| TEN	| Tennessee Titans
+KC	| Kansas City Chiefs	| WAS	| Washington Redskins
 ## Stats
 
 Mainnet address: [https://api.suredbits.com/nba/v0/stats](https://api.suredbits.com/nba/v0/stats)
+
 Testnet address: [https://test.api.suredbits.com/nba/v0/stats](https://test.api.suredbits.com/nba/v0/stats)
 
 Method | HTTPS Request | Description
@@ -2782,7 +2805,7 @@ Field | Type | Example
 `firstName`  | String | Drew
 `lastName` | String | Brees
 
-# NBA Data (Deprecated)
+# NBA Data Websocket (Deprecated)
 
 ## NBA Websocket Endpoints
 
