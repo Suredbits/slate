@@ -1643,7 +1643,6 @@ Type | Example
 ----- | -------
 `seasonPhase` | `Preseason`, `Regular`, `Postseason`
 `teamId` | `CHI`, `NE`, `BAL`, etc.  <a href="#TeamID">See Team ID Table</a>
-`realTime` | `true`
 `firstName` | `Khalil`, `Tom`, `Saquon`, etc. 
 `lastName` | `Mack` `Brady`, `Barkley`, etc. 
 `retrieve` | `roster`, `schedule` 
@@ -2066,9 +2065,7 @@ as your IV and the rest as the encrypted payload.
 
 Type | Example
 ----- | -------
-`season` | `2016`, `2017`, `2018`, etc. 
 `teamId` | `CHI`, `LAL`, `ATL`, 
-`realTime` | `true`
 `firstName` | `Kevin`, `Lebron`, `Zion`, etc. 
 `lastName` | `Durant` `James`, `Williamson`, etc. 
 `retrieve` | `roster`, `schedule` 
