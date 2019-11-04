@@ -2087,6 +2087,14 @@ Method | HTTPS Request | Description
 
 ## Games
 
+> Example Games Request 
+
+> https://api.suredbits.com/nba/v0/games/2018/11/24
+
+> Example Games Request by Team Id
+
+> https://api.suredbits.com/nba/v0/games/2016/12/20/CHI
+
 Mainnet address: [https://api.suredbits.com/nba/v0/games](https://api.suredbits.com/nba/v0/games)
 
 Testnet address: [https://test.api.suredbits.com/nba/v0/games](https://test.api.suredbits.com/nba/v0/games)
@@ -2098,6 +2106,10 @@ Method | HTTPS Request | Description
 
 ## Players
 
+> Example Players Request
+
+> https://api.suredbits.com/nba/v0/players/Kevin/Durant
+
 Mainnet address: [https://api.suredbits.com/nba/v0/players](https://api.suredbits.com/nba/v0/players)
 
 Testnet address: [https://test.api.suredbits.com/nba/v0/players](https://test.api.suredbits.com/nba/v0/players)
@@ -2108,6 +2120,15 @@ get      | GET players/firstName/lastName | Returns biographical information for
 
 
 ## Team
+
+> Example Team Roster Request 
+
+> https://api.suredbits.com/nba/v0/team/DEN/roster
+
+> Example Team Schedule Request 
+
+> https://api.suredbits.com/nba/v0/team/CHI/schedule
+
 
 Mainnet address: [https://api.suredbits.com/nba/v0/team](https://api.suredbits.com/nba/v0/team)
 
@@ -2141,6 +2162,10 @@ get      | GET team/teamId/schedule/season | Returns data for a specific team's 
 | DEN     | Denver Broncos         | WAS     | Washington Wizards     |
 
 ## Stats
+
+> Example Stats Request
+
+> https://api.suredbits.com/nba/v0/stats/21600854/201142
 
 Mainnet address: [https://api.suredbits.com/nba/v0/stats](https://api.suredbits.com/nba/v0/stats)
 
