@@ -2072,11 +2072,11 @@ Type | Example
 `firstName` | `Kevin`, `Lebron`, `Zion`, etc. 
 `lastName` | `Durant` `James`, `Williamson`, etc. 
 `retrieve` | `roster`, `schedule` 
-`year` | `2018`, `2015`, `2011`, etc.
+`year` | `2018`, `2017` `2016`, etc.
 `month` | `2`, `6`, `10`, etc. 
 `day` | `3`, `14`, `25`, etc. 
-`gameId` |  `2016101604`
-`playerId` | `00-0027973`
+`gameId` |  `21800280`
+`playerId` | `201142`
 
 ## Info
 
