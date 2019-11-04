@@ -2120,24 +2120,26 @@ get      | GET teamId/schedule | Returns data for a specific team's schedule for
 get      | GET teamID/roster/season | Returns data for a specific team's roster for specific year. 
 get      | GET teamID/schedule/season | Returns data for a specific team's schedule for a specific year. 
 
-Team Id	| City & Name | TeamID | City & Name
--------- | ----------- | ------ | ---------
-ARI	| Arizona Cardinals	| LA   | Los Angeles Rams
-ATL	| Atlanta Falcons	| MIA  | Miami Dolphins
-BAL	| Baltimore Ravens	| MIN | Minnesota Vikings
-BUF	| Buffalo Bills	NE	| NE  | New England Patriots
-CAR	| Carolina Panthers	| NO | New Orleans Saints
-CHI	| Chicago Bears	NYG	| NYG | New York Giants
-CIN	| Cincinnati Bengals	| NYJ	| New York Jets
-CLE	| Cleveland Browns	| OAK	| Oakland Raiders
-DAL	| Dallas Cowboys	| PHI	| Philadelphia Eagles
-DEN	| Denver Broncos	| PIT	| Pittsburgh Steelers
-DET	| Detroit Lions	SD	| SD   | San Diego Chargers
-GB	| Green Bay Packers	| SEA	| Seattle Seahawks
-HOU	| Houston Texans	| SF	| San Francisco 49ers
-IND	| Indianpolis Colts	| TB	| Tampa Bay Buccaneers
-JAC	| Jacksonville Jaguars	| TEN	| Tennessee Titans
-KC	| Kansas City Chiefs	| WAS	| Washington Redskins
+### Team IDs
+
+| Team ID | Team                   | Team ID | Team                   |
+| ------- | ---------------------- | ------- | ---------------------- |
+| ATL     | Atlanta Hawks          | PHI     | Philadelphia 76ers     |
+| MIA     | Miami Heat             | DET     | Detroit Pistons        |
+| BKN     | Brooklyn Nets          | PHX     | Phoenix Suns           |
+| MIL     | Milwaukee Bucks        | GSW     | Golden State Warriors  |
+| BOS     | Boston Celtics         | POR     | Portland Trail Blazers |
+| MIN     | Minnesota Timberwolves | HOU     | Houston Rockets        |
+| CHA     | Charlotte Hornets      | SAC     | Sacramento Kings       |
+| NOP     | New Orleans Pelicans   | IND     | Indiana Pacers         |
+| CHI     | Chicago Bulls          | SAS     | San Antonio Spurs      |
+| NYK     | New York Knicks        | LAC     | Los Angeles Clippers   |
+| CLE     | Cleveland Cavaliers    | TOR     | Toronto Raptors        |
+| OKC     | Oklahoma City Thunder  | LAL     | Los Angeles Lakers     |
+| DAL     | Dallas Mavericks       | UTA     | Utah Jazz              |
+| ORL     | Orlando Magic          | MEM     | Memphis Grizzlies      |
+| DEN     | Denver Broncos         | WAS     | Washington Wizards     |
+
 ## Stats
 
 Mainnet address: [https://api.suredbits.com/nba/v0/stats](https://api.suredbits.com/nba/v0/stats)
