@@ -2093,8 +2093,8 @@ Testnet address: [https://test.api.suredbits.com/nba/v0/games](https://test.api.
 
 Method | HTTPS Request | Description
  ------- | --------- | ------------
- get     |  GET /year/month/day | Returns data for games on that scheduled for that date. 
- get     |  GET /year/month/day/teamId | Returns data for games played by a specific team on that date.  
+ get     |  GET games/year/month/day | Returns data for games on that scheduled for that date. 
+ get     |  GET games/year/month/day/teamId | Returns data for games played by a specific team on that date.  
 
 ## Players
 
@@ -2104,7 +2104,7 @@ Testnet address: [https://test.api.suredbits.com/nba/v0/players](https://test.ap
 
 Method | HTTPS Request | Description
  ------- | --------- | ------------
-get      | GET /firstName/lastName | Returns biographical information for a specific player. 
+get      | GET players/firstName/lastName | Returns biographical information for a specific player. 
 
 
 ## Team
@@ -2115,14 +2115,14 @@ Testnet address: [https://test.api.suredbits.com/nba/v0/team](https://test.api.s
 
 Method | HTTPS Request | Description
  ------- | --------- | ------------
-get      | GET teamId/roster | Returns data for a specific team's roster for current year.
-get      | GET teamId/schedule | Returns data for a specific team's schedule for current year. 
-get      | GET teamID/roster/season | Returns data for a specific team's roster for specific year. 
-get      | GET teamID/schedule/season | Returns data for a specific team's schedule for a specific year. 
+get      | GET team/teamId/roster | Returns data for a specific team's roster for current year.
+get      | GET team/teamId/schedule | Returns data for a specific team's schedule for current year. 
+get      | GET team/teamId/roster/season | Returns data for a specific team's roster for specific year. 
+get      | GET team/teamId/schedule/season | Returns data for a specific team's schedule for a specific year. 
 
-### Team IDs
+### Team Ids
 
-| Team ID | Team                   | Team ID | Team                   |
+| Team Id | Team                   | Team ID | Team                   |
 | ------- | ---------------------- | ------- | ---------------------- |
 | ATL     | Atlanta Hawks          | PHI     | Philadelphia 76ers     |
 | MIA     | Miami Heat             | DET     | Detroit Pistons        |
@@ -2148,8 +2148,8 @@ Testnet address: [https://test.api.suredbits.com/nba/v0/stats](https://test.api.
 
 Method | HTTPS Request | Description
  ------- | --------- | ------------
- get     | GET gameId/playerId | Returns data about individual player by `gameId` and `playerId`.
- get     | GET year/month/day/firstName/lastName | Returns data by individual player by `firstName` and `lastName`.
+ get     | GET stats/gameId/playerId | Returns data about individual player by `gameId` and `playerId`.
+ get     | GET stats/year/month/day/firstName/lastName | Returns data by individual player by `firstName` and `lastName`.
 
 # NFL Data Websocket (Deprecated)
 
