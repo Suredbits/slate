@@ -2069,9 +2069,9 @@ Coming soon.  Email us at <a href="mailto:support@suredbits.com">support@suredbi
 
 Type | Example
 ----- | -------
-`teamId` | `CHI`, `LAL`, `ATL`, 
+`teamId` | `CHI`, `LAL`, `ATL`, etc...
 `firstName` | `Kevin`, `Lebron`, `Zion`, etc. 
-`lastName` | `Durant` `James`, `Williamson`, etc. 
+`lastName` | `Durant`, `James`, `Williamson`, etc. 
 `retrieve` | `roster`, `schedule` 
 `year` | `2018`, `2017` `2016`, etc.
 `month` | `2`, `6`, `10`, etc. 
