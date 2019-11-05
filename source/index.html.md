@@ -2061,6 +2061,10 @@ initialization vector (IV) is prepended to the payload, and the resulting byte s
 is base64-encoded. When decrypting you decode the base64 string, take the first 16 bytes
 as your IV and the rest as the encrypted payload. 
 
+### Client library
+
+Coming soon.  Email us at <a href="mailto:support@suredbits.com">support@suredbits.com</a> for updates. 
+
 ## Data Types 
 
 Type | Example
@@ -2095,6 +2099,44 @@ Method | HTTPS Request | Description
 
 > https://api.suredbits.com/nba/v0/games/2016/12/20/CHI
 
+> Example Games Data
+
+ ```json
+[
+   {  
+      "gameId":21800280,
+      "startTime":"2018-11-25T01:00:00.000Z",
+      "homeTeam":{  
+      "teamID":"WAS",
+      "finalScore":0
+    },
+      "awayTeam":{  
+      "teamID":"NOP",
+      "finalScore":0
+    },
+      "finished":false,
+      "seasonPhase":"Regular",
+      "year":"2018-2019"
+    },
+    {  
+      "gameId":21800282,
+      "startTime":"2018-11-25T01:00:00.000Z",
+      "homeTeam":{  
+      "teamID":"OKC",
+      "finalScore":0
+     },
+       "awayTeam":{  
+       "teamID":"DEN",
+       "finalScore":0
+     },
+       "finished":false,
+       "seasonPhase":"Regular",
+       "year":"2018-2019"
+     },
+     ...
+ ]
+ ```
+
 Mainnet address: [https://api.suredbits.com/nba/v0/games](https://api.suredbits.com/nba/v0/games)
 
 Testnet address: [https://test.api.suredbits.com/nba/v0/games](https://test.api.suredbits.com/nba/v0/games)
@@ -2109,6 +2151,25 @@ Method | HTTPS Request | Description
 > Example Players Request
 
 > https://api.suredbits.com/nba/v0/players/Kevin/Durant
+
+```json
+[  
+    {  
+       "playerId":201142,
+       "firstName":"Kevin",
+       "lastName":"Durant",
+       "fullName":"Kevin Durant",
+       "team":"GSW",
+       "profileUrl":"",
+       "birthDate":"2018-10-19T11:43:30.426Z",
+       "status":"Active",
+       "rookieYear":2007,
+       "lastYear":2018
+    }
+]
+
+
+```
 
 Mainnet address: [https://api.suredbits.com/nba/v0/players](https://api.suredbits.com/nba/v0/players)
 
@@ -2125,10 +2186,50 @@ get      | GET players/firstName/lastName | Returns biographical information for
 
 > https://api.suredbits.com/nba/v0/team/DEN/roster
 
+```json
+[ 
+   { 
+      "playerId":202918,
+      "firstName":"Xavier",
+      "lastName":"Silas",
+      "fullName":"Xavier Silas",
+      "team":"DEN",
+      "profileUrl":"",
+      "birthDate":"2018-10-14T16:18:10.918Z",
+      "status":"Active",
+      "rookieYear":2011,
+      "lastYear":2018
+   },
+   ...
+]
+```
+
 > Example Team Schedule Request 
 
 > https://api.suredbits.com/nba/v0/team/CHI/schedule
 
+> Example Team Schedule Data
+
+```json
+[  
+    {  
+       "gameId":21600073,
+       "startTime":"2016-11-05T00:00:00.000Z",
+       "homeTeam":{  
+       "teamID":"CHI",
+       "finalScore":104
+     },
+       "awayTeam":{  
+       "teamID":"NYK",
+       "finalScore":117
+     },
+       "finished":true,
+       "seasonPhase":"Regular",
+       "year":"2016-2017",
+     }
+]
+
+```
 
 Mainnet address: [https://api.suredbits.com/nba/v0/team](https://api.suredbits.com/nba/v0/team)
 
@@ -2166,6 +2267,34 @@ get      | GET team/teamId/schedule/season | Returns data for a specific team's 
 > Example Stats Request
 
 > https://api.suredbits.com/nba/v0/stats/21600854/201142
+
+> Example Player Stats Data (Kevin Durant)
+
+```json
+[  
+    {  
+       "playerId":201142,
+       "min":0,
+       "fgm":0,
+       "fga":0,
+       "tpm":0,
+       "tpa":0,
+       "ftm":0,
+       "fta":0,
+       "plusminus":0,
+       "off":0,
+       "deff":0,
+       "tot":0,
+       "ast":0,
+       "pf":0,
+       "st":0,
+       "to":0,
+       "bs":0,
+       "pts":0
+    }
+]
+
+```
 
 Mainnet address: [https://api.suredbits.com/nba/v0/stats](https://api.suredbits.com/nba/v0/stats)
 
