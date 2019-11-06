@@ -2177,7 +2177,7 @@ Testnet address: [https://test.api.suredbits.com/nba/v0/players](https://test.ap
 
 Method | HTTPS Request | Description
  ------- | --------- | ------------
-get      | GET players/firstName/lastName | Returns biographical information for a specific player. 
+get      | GET players/lastName/firstName | Returns biographical information for a specific player. 
 
 
 ## Team
