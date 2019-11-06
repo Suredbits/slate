@@ -2303,7 +2303,7 @@ Testnet address: [https://test.api.suredbits.com/nba/v0/stats](https://test.api.
 Method | HTTPS Request | Description
  ------- | --------- | ------------
  get     | GET stats/gameId/playerId | Returns data about individual player by `gameId` and `playerId`.
- get     | GET stats/year/month/day/lastName/firstName | Returns data by individual player by `firstName` and `lastName`.
+ get     | GET stats/lastName/firstName/year/month/day | Returns data by individual player by `firstName` and `lastName`.
 
 # NFL Data Websocket (Deprecated)
 
