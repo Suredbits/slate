@@ -2146,6 +2146,8 @@ Method | HTTPS Request | Description
  get     |  GET games/year/month/day | Returns data for games on that scheduled for that date. 
  get     |  GET games/year/month/day/teamId | Returns data for games played by a specific team on that date.  
 
+<aside class="warning">Due to inconsistencies in how NBA publishes game start times, some start times may be inaccurate.</aside>
+
 ## Players
 
 > Example Players Request
