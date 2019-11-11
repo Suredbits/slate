@@ -1643,7 +1643,6 @@ Type | Example
 ----- | -------
 `seasonPhase` | `Preseason`, `Regular`, `Postseason`
 `teamId` | `CHI`, `NE`, `BAL`, etc.  <a href="#TeamID">See Team ID Table</a>
-`realTime` | `true`
 `firstName` | `Khalil`, `Tom`, `Saquon`, etc. 
 `lastName` | `Mack` `Brady`, `Barkley`, etc. 
 `retrieve` | `roster`, `schedule` 
@@ -2038,6 +2037,275 @@ Required fields for Stats by Name and Week
 Method   | HTTPS Request | Description
  ------- | --------- | -----------
  get     | GET /stats/statType/year/week/seasonPhase/lastName/firstName | Returns statistics for a player by satistic type for specific year, week, and season by player name
+
+Our NFL API allows you to query data across `Games`, `Players`, `Team`, and `Stats`. 
+
+# NBA Data API
+
+Our NBA API allows you to query data across `Games`, `Players`, `Team`, and `Stats`. 
+
+Mainnet address: [https://api.suredbits.com/nba/v0](https://api.suredbits.com/nba/v0)
+
+Testnet address: [https://test.api.suredbits.com/nba/v0](https://test.api.suredbits.com/nba/v0)
+
+## Encrypted payloads
+
+All data server over our REST endpoints are sent to you immediately, but they are encrypted.
+The decryption key is the preimage that was used to generate the invoice we sent you. Your
+Lightning Client provides you with this preimage upon paying the invoice. 
+
+### Technical details
+
+The payloads are encrypted with AES in CFB mode, with no padding to the plaintext. The 
+initialization vector (IV) is prepended to the payload, and the resulting byte sequence
+is base64-encoded. When decrypting you decode the base64 string, take the first 16 bytes
+as your IV and the rest as the encrypted payload. 
+
+### Client library
+
+Coming soon.  Email us at <a href="mailto:support@suredbits.com">support@suredbits.com</a> for updates. 
+
+## Data Types 
+
+Type | Example
+----- | -------
+`teamId` | `CHI`, `LAL`, `ATL`, etc...
+`firstName` | `Kevin`, `Lebron`, `Zion`, etc. 
+`lastName` | `Durant`, `James`, `Williamson`, etc. 
+`retrieve` | `roster`, `schedule` 
+`year` | `2018`, `2017` `2016`, etc.
+`month` | `2`, `6`, `10`, etc. 
+`day` | `3`, `14`, `25`, etc. 
+`gameId` |  `21800280`
+`playerId` | `201142`
+
+## Info
+
+Mainnet address: [https://api.suredbits.com/nba/v0/info](https://api.suredbits.com/nba/v0/info)
+
+Testnet address: [https://test.api.suredbits.com/nba/v0/info](https://test.api.suredbits.com/nba/v0/info)
+
+Method | HTTPS Request | Description
+ ------- | --------- | ------------
+ get     | GET /info | Confirms connection and gives server status
+
+## Games
+
+> Example Games Request 
+
+> https://api.suredbits.com/nba/v0/games/2018/11/24
+
+> Example Games Request by Team Id
+
+> https://api.suredbits.com/nba/v0/games/2016/12/20/CHI
+
+> Example Games Data
+
+ ```json
+[
+   {  
+      "gameId":21800280,
+      "startTime":"2018-11-25T01:00:00.000Z",
+      "homeTeam":{  
+      "teamID":"WAS",
+      "finalScore":0
+    },
+      "awayTeam":{  
+      "teamID":"NOP",
+      "finalScore":0
+    },
+      "finished":false,
+      "seasonPhase":"Regular",
+      "year":"2018-2019"
+    },
+    {  
+      "gameId":21800282,
+      "startTime":"2018-11-25T01:00:00.000Z",
+      "homeTeam":{  
+      "teamID":"OKC",
+      "finalScore":0
+     },
+       "awayTeam":{  
+       "teamID":"DEN",
+       "finalScore":0
+     },
+       "finished":false,
+       "seasonPhase":"Regular",
+       "year":"2018-2019"
+     },
+     ...
+ ]
+ ```
+
+Mainnet address: [https://api.suredbits.com/nba/v0/games](https://api.suredbits.com/nba/v0/games)
+
+Testnet address: [https://test.api.suredbits.com/nba/v0/games](https://test.api.suredbits.com/nba/v0/games)
+
+Method | HTTPS Request | Description
+ ------- | --------- | ------------
+ get     |  GET games/year/month/day | Returns data for games on that scheduled for that date. 
+ get     |  GET games/year/month/day/teamId | Returns data for games played by a specific team on that date.  
+
+<aside class="warning">Due to inconsistencies in how NBA publishes game start times, some start times may be inaccurate.</aside>
+
+## Players
+
+> Example Players Request
+
+> https://api.suredbits.com/nba/v0/players/Kevin/Durant
+
+```json
+[  
+    {  
+       "playerId":201142,
+       "firstName":"Kevin",
+       "lastName":"Durant",
+       "fullName":"Kevin Durant",
+       "team":"GSW",
+       "profileUrl":"",
+       "birthDate":"2018-10-19T11:43:30.426Z",
+       "status":"Active",
+       "rookieYear":2007,
+       "lastYear":2018
+    }
+]
+
+
+```
+
+Mainnet address: [https://api.suredbits.com/nba/v0/players](https://api.suredbits.com/nba/v0/players)
+
+Testnet address: [https://test.api.suredbits.com/nba/v0/players](https://test.api.suredbits.com/nba/v0/players)
+
+Method | HTTPS Request | Description
+ ------- | --------- | ------------
+get      | GET players/lastName/firstName | Returns biographical information for a specific player. 
+
+
+## Team
+
+> Example Team Roster Request 
+
+> https://api.suredbits.com/nba/v0/team/DEN/roster
+
+```json
+[ 
+   { 
+      "playerId":202918,
+      "firstName":"Xavier",
+      "lastName":"Silas",
+      "fullName":"Xavier Silas",
+      "team":"DEN",
+      "profileUrl":"",
+      "birthDate":"2018-10-14T16:18:10.918Z",
+      "status":"Active",
+      "rookieYear":2011,
+      "lastYear":2018
+   },
+   ...
+]
+```
+
+> Example Team Schedule Request 
+
+> https://api.suredbits.com/nba/v0/team/CHI/schedule
+
+> Example Team Schedule Data
+
+```json
+[  
+    {  
+       "gameId":21600073,
+       "startTime":"2016-11-05T00:00:00.000Z",
+       "homeTeam":{  
+       "teamID":"CHI",
+       "finalScore":104
+     },
+       "awayTeam":{  
+       "teamID":"NYK",
+       "finalScore":117
+     },
+       "finished":true,
+       "seasonPhase":"Regular",
+       "year":"2016-2017",
+     }
+]
+
+```
+
+Mainnet address: [https://api.suredbits.com/nba/v0/team](https://api.suredbits.com/nba/v0/team)
+
+Testnet address: [https://test.api.suredbits.com/nba/v0/team](https://test.api.suredbits.com/nba/v0/team)
+
+Method | HTTPS Request | Description
+ ------- | --------- | ------------
+get      | GET team/teamId/roster | Returns data for a specific team's roster for current year.
+get      | GET team/teamId/schedule | Returns data for a specific team's schedule for current year. 
+get      | GET team/teamId/roster/season | Returns data for a specific team's roster for specific year. 
+get      | GET team/teamId/schedule/season | Returns data for a specific team's schedule for a specific year. 
+
+### Team Ids
+
+| Team Id | Team                   | Team ID | Team                   |
+| ------- | ---------------------- | ------- | ---------------------- |
+| ATL     | Atlanta Hawks          | PHI     | Philadelphia 76ers     |
+| MIA     | Miami Heat             | DET     | Detroit Pistons        |
+| BKN     | Brooklyn Nets          | PHX     | Phoenix Suns           |
+| MIL     | Milwaukee Bucks        | GSW     | Golden State Warriors  |
+| BOS     | Boston Celtics         | POR     | Portland Trail Blazers |
+| MIN     | Minnesota Timberwolves | HOU     | Houston Rockets        |
+| CHA     | Charlotte Hornets      | SAC     | Sacramento Kings       |
+| NOP     | New Orleans Pelicans   | IND     | Indiana Pacers         |
+| CHI     | Chicago Bulls          | SAS     | San Antonio Spurs      |
+| NYK     | New York Knicks        | LAC     | Los Angeles Clippers   |
+| CLE     | Cleveland Cavaliers    | TOR     | Toronto Raptors        |
+| OKC     | Oklahoma City Thunder  | LAL     | Los Angeles Lakers     |
+| DAL     | Dallas Mavericks       | UTA     | Utah Jazz              |
+| ORL     | Orlando Magic          | MEM     | Memphis Grizzlies      |
+| DEN     | Denver Broncos         | WAS     | Washington Wizards     |
+
+## Stats
+
+> Example Stats Request
+
+> https://api.suredbits.com/nba/v0/stats/21600854/201142
+
+> Example Player Stats Data (Kevin Durant)
+
+```json
+[  
+    {  
+       "playerId":201142,
+       "min":0,
+       "fgm":0,
+       "fga":0,
+       "tpm":0,
+       "tpa":0,
+       "ftm":0,
+       "fta":0,
+       "plusminus":0,
+       "off":0,
+       "deff":0,
+       "tot":0,
+       "ast":0,
+       "pf":0,
+       "st":0,
+       "to":0,
+       "bs":0,
+       "pts":0
+    }
+]
+
+```
+
+Mainnet address: [https://api.suredbits.com/nba/v0/stats](https://api.suredbits.com/nba/v0/stats)
+
+Testnet address: [https://test.api.suredbits.com/nba/v0/stats](https://test.api.suredbits.com/nba/v0/stats)
+
+Method | HTTPS Request | Description
+ ------- | --------- | ------------
+ get     | GET stats/gameId/playerId | Returns data about individual player by `gameId` and `playerId`.
+ get     | GET stats/lastName/firstName/year/month/day | Returns data by individual player by `firstName` and `lastName`.
 
 # NFL Data Websocket (Deprecated)
 
@@ -2695,7 +2963,7 @@ Field | Type | Example
 `firstName`  | String | Drew
 `lastName` | String | Brees
 
-# NBA Data
+# NBA Data Websocket (Deprecated)
 
 ## NBA Websocket Endpoints
 
