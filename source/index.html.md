@@ -18,7 +18,7 @@ search: true
 
 Follow us on twitter <a href="https://twitter.com/Suredbits">@Suredbits</a>
 
-We invite you to join our Slack channel <a href="https://join.slack.com/t/suredbits/shared_invite/enQtNDEyMjY3MTg1MTg3LTYyYjkwOGUzMDQ4NDAwZjE1M2I3MmQyNWNlZjNlYjg4OGRjYTRjNWUwNjRjNjg4Y2NjZjAxYjU1N2JjMTU1YWM">Suredbits Slack</a>
+We invite you to join our Slack channel <a href="https://join.slack.com/t/suredbits/shared_invite/enQtNzc0OTA1MjM4NzIxLWJkZDRkMTU5NmYzM2IzMmI2MzVhODQwZjYyZDljMjcwYzIwMzljMWRhY2I0ODZlOWY1OWU3ZmFjNzA2MDczN2Q">Suredbits Slack</a>
 
 ## Websocket Playground
 
@@ -1102,6 +1102,9 @@ Field | Type | Exchanges Supporting
 `quantityTotal` | Double | binance, bitfinex, coinbase, gemini 
 `quantityChange` | Double | bitstamp, gemini 
 `symbol` | String |  binance, coinbase 
+
+<aside class="warning"> We currently do not support <code>Books</code> for Kraken Spot trading.</a> </aside>
+
 
 # Crypto Futures Exchange API
 
@@ -3650,7 +3653,7 @@ Field | Type | Example
 # Contact Us
 Follow us on twitter <a href="https://twitter.com/Suredbits">@Suredbits</a>
 
-Join our Slack channel <a href="https://join.slack.com/t/suredbits/shared_invite/enQtNDEyMjY3MTg1MTg3LTYyYjkwOGUzMDQ4NDAwZjE1M2I3MmQyNWNlZjNlYjg4OGRjYTRjNWUwNjRjNjg4Y2NjZjAxYjU1N2JjMTU1YWM">Suredbits Slack</a>
+Join our Slack channel <a href="https://join.slack.com/t/suredbits/shared_invite/enQtNzc0OTA1MjM4NzIxLWJkZDRkMTU5NmYzM2IzMmI2MzVhODQwZjYyZDljMjcwYzIwMzljMWRhY2I0ODZlOWY1OWU3ZmFjNzA2MDczN2Q">Suredbits Slack</a>
  
 Email us at <a href="mailto:support@suredbits.com">support@suredbits.com</a>
 
