@@ -18,7 +18,7 @@ search: true
 
 Follow us on twitter <a href="https://twitter.com/Suredbits">@Suredbits</a>
 
-We invite you to join our Slack channel <a href="https://join.slack.com/t/suredbits/shared_invite/enQtNzc0OTA1MjM4NzIxLWJkZDRkMTU5NmYzM2IzMmI2MzVhODQwZjYyZDljMjcwYzIwMzljMWRhY2I0ODZlOWY1OWU3ZmFjNzA2MDczN2Q">Suredbits Slack</a>
+We invite you to join our Slack channel <a href="https://join.slack.com/t/suredbits/shared_invite/zt-eavycu0x-WQL7XOakzQo8tAy7jHHZUw">Suredbits Slack</a>
 
 ## Websocket Playground
 
